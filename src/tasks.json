@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "text": "Sit down on the floor against the wall. Close your eyes and breathe softly with your stomach. Turn your phone to flight mode and set a timer for 10 minutes.",
+    "completed": false,
+    "readMoreLink": "https://www.health.com/floor-sitting-posture-benefits-7377628"
+  },
+  {
+    "id": 2,
+    "text": "Take a short walk outside. Focus on your surroundings and enjoy the fresh air.",
+    "completed": false,
+    "readMoreLink": "https://www.healthline.com/health/health-benefits-of-being-outdoors"
+  },
+  {
+    "id": 4,
+    "text": "Stretch your arms and legs for 5 minutes.",
+    "completed": false,
+    "readMoreLink": "https://www.health.harvard.edu/staying-healthy/the-importance-of-stretching"
+  },
+  {
+    "id": 5,
+    "text": "Read a book for 15 minutes.",
+    "completed": false,
+    "readMoreLink": "https://www.renaissance.com/2018/01/23/blog-magic-15-minutes-reading-practice-reading-growth/"
+  },
+  {
+    "id": 7,
+    "text": "Practice mindfulness meditation for 10 minutes.",
+    "completed": false,
+    "readMoreLink": "https://theconversation.com/mindfulness-meditation-ten-minutes-a-day-improves-cognitive-function-103386"
+  }
+]
