@@ -1,6 +1,6 @@
 # Technigo React Starter App
 
-A Todo app for de-stressing.
+A daily task app for better everyday choices and the envoirement.
 
 THIS PROJECT WAS MADE BY KARIN LUNDVQIST
 View the project on Netlify: 
