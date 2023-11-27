@@ -1,32 +1,62 @@
 [
   {
     "id": 1,
-    "text": "Sit down on the floor against the wall. Close your eyes and breathe softly with your stomach. Turn your phone to flight mode and set a timer for 10 minutes.",
-    "completed": false,
-    "readMoreLink": "https://www.health.com/floor-sitting-posture-benefits-7377628"
+    "task": "Don't buy take away coffee today",
+    "category": "Reduce Waste",
+    "completed": false
   },
   {
     "id": 2,
-    "text": "Take a short walk outside. Focus on your surroundings and enjoy the fresh air.",
-    "completed": false,
-    "readMoreLink": "https://www.healthline.com/health/health-benefits-of-being-outdoors"
+    "task": "Put the lights out in the rooms you aren't in",
+    "category": "Save Energy",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "task": "Use a reusable water bottle instead of single-use plastic",
+    "category": "Reduce Plastic",
+    "completed": false
   },
   {
     "id": 4,
-    "text": "Stretch your arms and legs for 5 minutes.",
-    "completed": false,
-    "readMoreLink": "https://www.health.harvard.edu/staying-healthy/the-importance-of-stretching"
+    "task": "Turn off electronic devices when not in use",
+    "category": "Save Energy",
+    "completed": false
   },
   {
     "id": 5,
-    "text": "Read a book for 15 minutes.",
-    "completed": false,
-    "readMoreLink": "https://www.renaissance.com/2018/01/23/blog-magic-15-minutes-reading-practice-reading-growth/"
+    "task": "Plant a tree or participate in a tree-planting event",
+    "category": "Support Nature",
+    "completed": false
+  },
+  {
+    "id": 6,
+    "task": "Reduce meat consumption for the day",
+    "category": "Sustainable Diet",
+    "completed": false
   },
   {
     "id": 7,
-    "text": "Practice mindfulness meditation for 10 minutes.",
-    "completed": false,
-    "readMoreLink": "https://theconversation.com/mindfulness-meditation-ten-minutes-a-day-improves-cognitive-function-103386"
+    "task": "Use public transportation or carpool instead of driving alone",
+    "category": "Reduce Carbon Footprint",
+    "completed": false
+  },
+  {
+    "id": 8,
+    "task": "Recycle paper, plastic, and glass materials",
+    "category": "Recycling",
+    "completed": false
+  },
+  {
+    "id": 9,
+    "task": "Take shorter showers to conserve water",
+    "category": "Water Conservation",
+    "completed": false
+  },
+  {
+    "id": 10,
+    "task": "Participate in a local cleanup event to reduce litter",
+    "category": "Community Cleanup",
+    "completed": false
   }
 ]

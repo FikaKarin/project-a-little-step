@@ -1,42 +1,44 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { FaPlus } from 'react-icons/fa';
 import { addTask } from '../../reducers/tasks';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
 
 export const TaskForm = () => {
   const dispatch = useDispatch();
   const [newTask, setNewTask] = useState('');
-  const [dueDate, setDueDate] = useState('');
 
   const handleAddTask = () => {
     if (newTask.trim() !== '') {
       dispatch(
-        addTask({ id: Date.now(), text: newTask, completed: false, dueDate })
+        addTask({ id: Date.now(), text: newTask, completed: false })
       );
       setNewTask('');
-      setDueDate('');
     }
   };
 
   return (
     <TaskFormWrapper>
-      <h2>Add Task</h2>
+      <h2>Add Step</h2>
       <input
         type='text'
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder='Enter task'
       />
-      <label>
-        Due Date:
-        <input
-          type='date'
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
-        />
-      </label>
       <ButtonContainer>
-        <Button onClick={handleAddTask}>Add Task</Button>
+        <Button onClick={handleAddTask}>
+          <StyledPlus />
+        </Button>
       </ButtonContainer>
     </TaskFormWrapper>
   );
@@ -44,17 +46,14 @@ export const TaskForm = () => {
 
 const TaskFormWrapper = styled.div`
   margin-bottom: 20px;
-  background-color: #ede69e86;
-  padding: 6px 8px;
+  padding: 6px 24px;
   border-radius: 8px;
-  box-shadow: 2px 2px 2px grey;
   display: flex;
   flex-direction: column;
 
   h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    font-weight: 200;
   }
 
   input {
@@ -63,7 +62,6 @@ const TaskFormWrapper = styled.div`
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family: 'Helvetica', sans-serif;
   }
 
   label {
@@ -79,12 +77,10 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   padding: 8px 16px;
-  background-image: linear-gradient(to right, #05a405b8 30%, #085b08df 80%);
-  color: white;
+  color: black;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: 'Helvetica', sans-serif;
   box-shadow: 2px 2px 4px black;
   font-weight: 600;
 
@@ -92,5 +88,15 @@ const Button = styled.button`
     background-color: #45a049;
     padding: 10px 18px;
     transition: ease-in 0.2s;
+    color: white;
+  }
+`;
+
+const StyledPlus = styled(FaPlus)`
+  font-size: 20px;
+  transition: transform 0.3s ease-in-out; // Add a transition for a smooth effect
+
+  &:hover {
+    transform: rotate(360deg);
   }
 `;

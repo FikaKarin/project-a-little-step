@@ -20,10 +20,10 @@ export const tasksSlice = createSlice({
   reducers: {
     // Add a new task to the allTasks array
     addTask: (state, action) => {
-      const { text, dueDate } = action.payload;
+      const { task, dueDate } = action.payload;
       const newTask = {
         id: Date.now(),
-        text,
+        task,
         chosen: false,
         createdAt: new Date().toISOString(), // Convert to a string
         dueDate,
@@ -150,27 +150,31 @@ export const tasksSlice = createSlice({
     // Toggle the chosen status of a task
     toggleTaskChosen: (state, action) => {
       const taskId = action.payload;
-      const task = state.allTasks.find((task) => task.id === taskId);
-
-      if (task) {
-        if (task.chosen) {
+      const taskIndex = state.allTasks.findIndex((task) => task.id === taskId);
+    
+      if (taskIndex !== -1) {
+        const updatedAllTasks = [...state.allTasks];
+        updatedAllTasks[taskIndex] = {
+          ...updatedAllTasks[taskIndex],
+          chosen: !updatedAllTasks[taskIndex].chosen,
+        };
+    
+        state.allTasks = updatedAllTasks;
+    
+        if (updatedAllTasks[taskIndex].chosen) {
+          state.chosenTasks.push(updatedAllTasks[taskIndex]);
+        } else {
           state.chosenTasks = state.chosenTasks.filter(
             (task) => task.id !== taskId
           );
-        } else {
-          // Check if the dailyTaskLimit has been reached
-          if (state.chosenToday.length < state.dailyTaskLimit) {
-            state.chosenTasks.push(task);
-            state.chosenToday.push(task.id);
-          } else {
-            console.warn('Daily task limit reached!');
-          }
         }
-        task.chosen = !task.chosen; // Updated from chosen
       }
     },
+       
+    
     // Start a new day by resetting chosenToday array and unchecking all chosen tasks
     startNewDay: (state) => {
+      console.log('Starting a new day!'); // Log when starting a new day
       state.chosenToday = [];
       state.allTasks.forEach((task) => {
         const taskCreationDay = new Date(task.createdAt).getDay();
@@ -179,7 +183,7 @@ export const tasksSlice = createSlice({
           task.chosen = false;
         }
       });
-    },    
+    },   
   },
 });
 

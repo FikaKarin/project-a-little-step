@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { completeTask, undoChosenTask } from '../../reducers/tasks'; // Import the action
+import { completeTask, undoChosenTask } from '../../reducers/tasks';
 import { FaCheckCircle, FaUndo } from 'react-icons/fa';
 
 export const ChosenTaskList = () => {
   const dispatch = useDispatch();
   const chosenTasks = useSelector((state) => state.tasks.chosenTasks || []);
+
+  // useEffect to handle the updated chosenTasks
+  useEffect(() => {
+    // You can add any logic here that needs to run when chosenTasks are updated
+    console.log('ChosenTasks updated:', chosenTasks);
+  }, [chosenTasks]);
 
   const handleCompleteTask = (taskId) => {
     dispatch(completeTask({ taskId }));
@@ -23,7 +29,7 @@ export const ChosenTaskList = () => {
         <ul>
           {chosenTasks.map((task) => (
             <li key={task.id}>
-              <ChosenTaskText>{task.text}</ChosenTaskText>
+              <ChosenTaskText>{task.task}</ChosenTaskText>
               <ButtonWrapper>
                 <FaCheckCircleStyled
                   onClick={() => handleCompleteTask(task.id)}
@@ -49,7 +55,6 @@ const ChosenTaskListWrapper = styled.div`
     font-size: 1.2rem;
     margin-bottom: 10px;
     margin-bottom: 18px;
-    font-weight: 200;
   }
 
   ul {
@@ -60,7 +65,6 @@ const ChosenTaskListWrapper = styled.div`
 
   li {
     margin-bottom: 8px;
-    font-family: 'Helvetica', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

@@ -60,23 +60,8 @@ export const TaskList = () => {
   }, []);
 
   const handleToggleChosen = (taskId) => {
-    console.log('chosenToday:', chosenToday);
-
-    if (chosenToday) {
-      console.log('chosenToday.length:', chosenToday.length);
-
-      if (chosenToday.length < 3) {
-        dispatch(toggleTaskChosen(taskId));
-      } else {
-        setDailyLimitReached(true);
-        setTimeout(() => {
-          setDailyLimitReached(false);
-        }, 15000);
-      }
-    } else {
-      console.error('chosenToday is undefined');
-    }
-  };
+    dispatch(toggleTaskChosen(taskId));
+  };  
 
   const handleRemoveTask = (taskId) => {
     dispatch(removeTask(taskId));
@@ -102,7 +87,7 @@ export const TaskList = () => {
   return (
     <TaskListWrapper>
       <TaskListHeader
-        title='All Tasks'
+        title='Steps'
         count={allTasks.length}
         dailyLimitReached={dailyLimitReached}
         timeRemaining={timeRemaining}
@@ -110,8 +95,8 @@ export const TaskList = () => {
       />
       <ul>
         {allTasks
-          .slice() // create a copy of the array
-          .reverse() // reverse the order
+          .slice()
+          .reverse()
           .filter(
             (task) =>
               (showAll ||
@@ -125,23 +110,26 @@ export const TaskList = () => {
             (task) =>
               !createdAfterDate || new Date(task.createdAt) > createdAfterDate
           )
-          .map((task) => (
-            <TaskListItem
-              key={`${task.id}-${task.text}`} // Combine id and text for a more unique key
-              task={task}
-              handleToggleChosen={handleToggleChosen}
-              handleRemoveTask={handleRemoveTask}
-              handleUndoRemoveTask={handleUndoRemoveTask}
-            />
-          ))}
+          .map((task) => {
+            return (
+              <TaskListItem
+                key={`${task.id}-${task.task}`}
+                task={task}
+                handleToggleChosen={handleToggleChosen}
+                handleRemoveTask={handleRemoveTask}
+                handleUndoRemoveTask={handleUndoRemoveTask}
+              />
+            );
+          })}
       </ul>
+
       {removedTasks.length > 0 && (
         <div>
           <h2>Removed Tasks</h2>
           <StyledRemovedTaskList>
             {removedTasks.map((task) => (
               <li key={task.id}>
-                <RemovedTaskText>{task.text}</RemovedTaskText>
+                <RemovedTaskText>{task.task}</RemovedTaskText>
                 <FaUndoButton onClick={handleUndoRemoveTask} />
               </li>
             ))}
@@ -153,8 +141,11 @@ export const TaskList = () => {
 };
 
 const TaskListWrapper = styled.div`
+  flex: 1;
   margin: 0 auto;
   width: 100%;
+  max-height: 400px; /* Set maximum height */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
 
   ul {
     list-style: none;
@@ -165,9 +156,8 @@ const TaskListWrapper = styled.div`
 
   li {
     width: 100%;
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    box-sizing: border-box;
     margin-bottom: 20px;
-    font-family: 'Helvetica', sans-serif;
 
     &:last-child {
       margin-bottom: 0;
@@ -189,9 +179,9 @@ const TaskListWrapper = styled.div`
 
   h2 {
     font-size: 1.2rem;
-    font-weight: 200;
     margin-bottom: 10px;
   }
+
   @media (max-width: 420px) {
     h2,
     p {
@@ -199,6 +189,7 @@ const TaskListWrapper = styled.div`
     }
   }
 `;
+
 const StyledRemovedTaskList = styled.ul`
   list-style: none;
   padding: 0;

@@ -29,17 +29,19 @@ export const TaskContainer = () => {
   );
 };
 
-// Styled component for the wrapper
 const TaskContainerWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between; // Adjust as needed
-  background-image: linear-gradient(to right, #f5f5dcd1 50%, #63bc63d8 80%);
+  flex-direction: column; // Stack vertically
   padding-left: 16px;
-  border-radius: 16px;
-  box-shadow: 2px 2px 4px black;
+  border-radius: 6px;
   padding-bottom: 8px;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 16px;
+
+  // Adjust the height values as needed
+  & > div {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 16px; // Add space between lists
+  }
 `;

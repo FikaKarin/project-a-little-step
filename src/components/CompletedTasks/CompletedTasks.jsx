@@ -31,7 +31,7 @@ export const CompletedTaskList = () => {
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
-            <CompletedTaskText>{task.text}</CompletedTaskText>
+            <CompletedTaskText>{task.task}</CompletedTaskText>
             <p>Completed on: {formatDate(task.completedAt)}</p>
             <FaUndo
               style={{
@@ -61,7 +61,6 @@ const CompletedTaskListWrapper = styled.div`
   h2 {
     font-size: 1.2rem;
     margin-bottom: 18px;
-    font-weight: 200;
   }
 
   p {
@@ -76,7 +75,6 @@ const CompletedTaskListWrapper = styled.div`
 
   li {
     margin-bottom: 16px;
-    font-family: 'Helvetica', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

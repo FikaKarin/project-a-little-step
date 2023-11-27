@@ -1,16 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <h1>Make Time - To Calm Down</h1>
+      <h1>A Little Step</h1>
     </HeaderWrapper>
   );
 };
 
 const HeaderWrapper = styled.div`
-  h1 {
-    font-weight: 200;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 32px;
 `;

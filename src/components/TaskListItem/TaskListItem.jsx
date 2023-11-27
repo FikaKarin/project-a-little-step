@@ -7,17 +7,6 @@ export const TaskListItem = ({
   handleToggleChosen,
   handleRemoveTask,
 }) => {
-  // Add the formatDate function directly here
-  const formatDate = (dateTimeString) => {
-    const options = {
-      year: '2-digit',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    };
-    return new Date(dateTimeString).toLocaleString(undefined, options);
-  };
 
   return (
     <TaskListItemWrapper>
@@ -28,8 +17,7 @@ export const TaskListItem = ({
             checked={task.chosen || false}
             onChange={() => handleToggleChosen(task.id)}
           />
-          <p>{task.text}</p>
-          <p className='created-date'>Created: {formatDate(task.createdAt)}</p>
+          <p>{task.task}</p>
           {task.readMoreLink && (
             <a
               href={task.readMoreLink}
@@ -69,13 +57,12 @@ export const TaskListItem = ({
 const TaskListItemWrapper = styled.div`
   li {
     display: flex;
-    flex-direction: column; /* Change to column */
-    align-items: stretch; /* Align items in a column */
+    align-items: center; /* Align items in a row */
+    justify-content: space-between; /* Add space between items */
     margin-bottom: 10px;
+    margin-top: 8px;
     padding: 8px;
     border-bottom: 1px solid black;
-    border-right: 1px solid #0000003b;
-    font-family: 'Helvetica', sans-serif;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
 
     &:hover {
@@ -92,11 +79,14 @@ const TaskListItemWrapper = styled.div`
 
     div {
       width: 100%;
+      display: flex;
+      align-items: center; /* Align items in a row */
     }
 
     p {
       margin-bottom: 5px;
       color: black;
+      margin-left: 10px; /* Add margin to the left of the paragraph */
     }
 
     .created-date {
@@ -123,6 +113,7 @@ const TaskListItemWrapper = styled.div`
   .action-buttons {
     display: flex;
     flex-direction: column;
+    width: 30%;
 
     button {
       margin-top: auto;
@@ -137,7 +128,6 @@ const TaskListItemWrapper = styled.div`
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      font-family: 'Helvetica', sans-serif;
       font-size: 10px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */
 
