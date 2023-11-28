@@ -55,7 +55,7 @@ export const CompletedTaskList = () => {
 };
 
 const CompletedTaskListWrapper = styled.div`
-  width: 300px;
+  width: 100%;
   padding: 0 6px;
 
   h2 {

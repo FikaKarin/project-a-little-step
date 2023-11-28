@@ -125,6 +125,9 @@ export const tasksSlice = createSlice({
           // If the task was already completed, move it back to chosenTasks
           state.chosenTasks.push(taskToComplete);
         }
+
+        // Trigger the rendering of CompletedLottie in AchievementsList
+        state.renderCompletedLottie = true;
       }
     },
     undoCompleteTask: (state, action) => {
@@ -151,16 +154,16 @@ export const tasksSlice = createSlice({
     toggleTaskChosen: (state, action) => {
       const taskId = action.payload;
       const taskIndex = state.allTasks.findIndex((task) => task.id === taskId);
-    
+
       if (taskIndex !== -1) {
         const updatedAllTasks = [...state.allTasks];
         updatedAllTasks[taskIndex] = {
           ...updatedAllTasks[taskIndex],
           chosen: !updatedAllTasks[taskIndex].chosen,
         };
-    
+
         state.allTasks = updatedAllTasks;
-    
+
         if (updatedAllTasks[taskIndex].chosen) {
           state.chosenTasks.push(updatedAllTasks[taskIndex]);
         } else {
@@ -170,8 +173,7 @@ export const tasksSlice = createSlice({
         }
       }
     },
-       
-    
+
     // Start a new day by resetting chosenToday array and unchecking all chosen tasks
     startNewDay: (state) => {
       console.log('Starting a new day!'); // Log when starting a new day
@@ -183,7 +185,7 @@ export const tasksSlice = createSlice({
           task.chosen = false;
         }
       });
-    },   
+    },
   },
 });
 

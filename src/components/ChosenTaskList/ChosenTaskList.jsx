@@ -48,7 +48,7 @@ export const ChosenTaskList = () => {
 
 const ChosenTaskListWrapper = styled.div`
   margin-bottom: 20px;
-  width: 300px;
+  width: 100%;
   padding: 0 6px;
 
   h2 {

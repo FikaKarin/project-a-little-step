@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Lottie } from '../Lottie/Lottie';
 
 export const Welcome = ({ onTimeout }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -7,7 +8,7 @@ export const Welcome = ({ onTimeout }) => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onTimeout();
-    }, 2000);
+    }, 6500);
 
     return () => clearTimeout(timer);
   }, [onTimeout]);
@@ -15,8 +16,8 @@ export const Welcome = ({ onTimeout }) => {
   return (
     <div
       style={{
-        width: '300px',
-        height: '300px',
+        width: '500px',
+        height: '500px',
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -33,6 +34,7 @@ export const Welcome = ({ onTimeout }) => {
     >
       <h1 style={{ margin: '0' }}>Welcome to A Little Step!</h1>
       <p style={{ margin: '10px 0', fontSize: '16px' }}>Taking small steps for a big impact.</p>
+      <Lottie />
     </div>
   );
 };
