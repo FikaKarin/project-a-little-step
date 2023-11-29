@@ -1,6 +1,7 @@
 // About.jsx
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const About = () => {
@@ -10,9 +11,9 @@ export const About = () => {
       <PWrapper>
       <p>
         A Little Step helps you get reminded of the little things we all can do every day
-        that get us started on the path of making better choices for the environment.
-        Here we have a list you can choose tasks to complete, and when you've completed them.
-        You can also add tasks of your own choice to the list in the form below.
+        that get us started on the path of making better choices for the environment.<br></br>
+        We have a list you can choose tasks to complete, and when you've completed them.<br></br>
+        You can also add tasks of your own choice to the list.
       </p>
       </PWrapper>
     </AboutWrapper>

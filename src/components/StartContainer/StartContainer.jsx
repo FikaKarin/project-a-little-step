@@ -1,9 +1,7 @@
 // StartContainer.jsx
 import React from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { TaskForm } from '../Taskform/TaskForm';
 import { About } from '../About/About'; // Import the About component
-import { AchievementsList } from '../AchievementsList/AchievementsList'; // Import the AchievementsList component
 import styled from 'styled-components';
 
 export const StartContainer = () => {
@@ -15,8 +13,6 @@ export const StartContainer = () => {
   return (
     <TopWrapper>
       <About />
-      <TaskForm />
-      <AchievementsList completedTasks={completedTasks} />
     </TopWrapper>
   );
 };

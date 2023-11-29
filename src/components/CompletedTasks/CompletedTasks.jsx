@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { undoCompleteTask } from '../../reducers/tasks'; // Import the action
+import { undoCompleteTask } from '../../reducers/tasks'; 
 import { FaUndo } from 'react-icons/fa';
+import { AchievementsList } from '../AchievementsList/AchievementsList';
 
 export const CompletedTaskList = () => {
   const completedTasks = useSelector(
@@ -50,6 +51,7 @@ export const CompletedTaskList = () => {
           </li>
         ))}
       </ul>
+      <AchievementsList completedTasks={completedTasks} />
     </CompletedTaskListWrapper>
   );
 };

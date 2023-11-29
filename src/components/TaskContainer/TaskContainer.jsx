@@ -7,6 +7,8 @@ import tasksReducer from '../../reducers/tasks';
 import { TaskList } from '../../components/TaskList/TaskList';
 import { ChosenTaskList } from '../../components/ChosenTaskList/ChosenTaskList';
 import { CompletedTaskList } from '../../components/CompletedTasks/CompletedTasks';
+import { TaskForm } from '../Taskform/TaskForm';
+
 
 // Combine reducers
 const reducer = combineReducers({
@@ -22,6 +24,7 @@ const store = configureStore({
 export const TaskContainer = () => {
   return (
     <TaskContainerWrapper>
+      <TaskForm />
       <TaskList />
       <ChosenTaskList />
       <CompletedTaskList />
