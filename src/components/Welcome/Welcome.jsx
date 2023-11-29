@@ -1,17 +1,20 @@
+// Welcome.jsx
 import React, { useState, useEffect } from 'react';
 import { Lottie } from '../Lottie/Lottie';
+import { useNavigate } from 'react-router-dom';
 
 export const Welcome = ({ onTimeout }) => {
   const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-      onTimeout();
+      onTimeout(navigate); // Pass navigate function to onTimeout
     }, 6500);
 
     return () => clearTimeout(timer);
-  }, [onTimeout]);
+  }, [onTimeout, navigate]);
 
   return (
     <div
@@ -38,4 +41,3 @@ export const Welcome = ({ onTimeout }) => {
     </div>
   );
 };
-

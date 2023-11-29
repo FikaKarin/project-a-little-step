@@ -19,9 +19,7 @@ export const TaskForm = () => {
 
   const handleAddTask = () => {
     if (newTask.trim() !== '') {
-      dispatch(
-        addTask({ id: Date.now(), text: newTask, completed: false })
-      );
+      dispatch(addTask({ id: Date.now(), task: newTask, completed: false }));
       setNewTask('');
     }
   };
@@ -94,7 +92,7 @@ const Button = styled.button`
 
 const StyledPlus = styled(FaPlus)`
   font-size: 20px;
-  transition: transform 0.3s ease-in-out; // Add a transition for a smooth effect
+  transition: transform 0.3s ease-in-out;
 
   &:hover {
     transform: rotate(360deg);

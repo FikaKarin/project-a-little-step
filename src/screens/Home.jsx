@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import styled from 'styled-components';
 import tasksReducer from '../reducers/tasks';
-import { TaskContainer } from '../components/TaskContainer/TaskContainer';
 import { StartContainer } from '../components/StartContainer/StartContainer';
-import { HeaderContainer } from '../components/HeaderContainer/HeaderContainer'; // Import the HeaderContainer component
+import { HeaderContainer } from '../components/HeaderContainer/HeaderContainer';
 
 // Combine reducers
 const reducer = combineReducers({
@@ -22,10 +22,10 @@ export const Home = () => {
   return (
     <Provider store={store}>
       <div>
-        <HeaderContainer /> {/* Include HeaderContainer outside of HomeWrapper */}
+        <HeaderContainer />
         <HomeWrapper>
           <StartContainer />
-          <TaskContainer />
+          <Link to="/task-container">Go to Task Container</Link>
         </HomeWrapper>
       </div>
     </Provider>

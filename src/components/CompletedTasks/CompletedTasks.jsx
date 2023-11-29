@@ -1,18 +1,24 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { undoCompleteTask } from '../../reducers/tasks'; 
+import { undoCompleteTask } from '../../reducers/tasks';
 import { FaUndo } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { AchievementsList } from '../AchievementsList/AchievementsList';
 
-export const CompletedTaskList = () => {
+export const CompletedTasks = () => {
   const completedTasks = useSelector(
     (state) => state.tasks.completedTasks || []
   );
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleUndoCompleteTask = (taskId) => {
-    dispatch(undoCompleteTask({ taskId })); // Dispatch the undoCompleteTask action
+    dispatch(undoCompleteTask({ taskId }));
+  };
+
+  const handleGoToTaskContainer = () => {
+    navigate('/task-container');
   };
 
   const formatDate = (dateTimeString) => {
@@ -42,7 +48,7 @@ export const CompletedTaskList = () => {
                 borderRadius: '4px',
                 cursor: 'pointer',
                 fontSize: '33px',
-                alignSelf: 'flex-end' /* Align to the right */,
+                alignSelf: 'flex-end',
                 fontWeight: '600',
                 marginLeft: '8px',
               }}
@@ -52,14 +58,24 @@ export const CompletedTaskList = () => {
         ))}
       </ul>
       <AchievementsList completedTasks={completedTasks} />
+
+      {/* Button to go back to TaskContainer (bottom left corner) */}
+      <BottomLeftButton onClick={handleGoToTaskContainer}>
+        Go to Task Container
+      </BottomLeftButton>
     </CompletedTaskListWrapper>
   );
 };
 
 const CompletedTaskListWrapper = styled.div`
-  width: 100%;
-  padding: 0 6px;
-
+  display: flex;
+  flex-direction: column; // Stack vertically
+  padding-left: 16px;
+  border-radius: 6px;
+  padding-bottom: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  
   h2 {
     font-size: 1.2rem;
     margin-bottom: 18px;
@@ -91,6 +107,7 @@ const CompletedTaskListWrapper = styled.div`
       transform: translateY(20px);
     }
   }
+
   @media (max-width: 420px) {
     h2,
     p {
@@ -101,6 +118,18 @@ const CompletedTaskListWrapper = styled.div`
 
 const CompletedTaskText = styled.span`
   margin-bottom: 8px;
-  text-decoration: line-through; /* Apply strikethrough to completed tasks */
-  color: #888; /* Adjust color for completed tasks */
+  text-decoration: line-through;
+  color: #888;
+`;
+
+const BottomLeftButton = styled.button`
+  bottom: 8px;
+  left: 8px;
+  background-color: #3498db;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
 `;
