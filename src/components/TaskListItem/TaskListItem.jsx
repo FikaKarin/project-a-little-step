@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaTrash } from 'react-icons/fa';
 
 export const TaskListItem = ({ task, handleToggleChosen }) => {
   const handleTaskClick = () => {
+    // Handle the logic when a TaskListItem is clicked
     handleToggleChosen(task.id);
   };
 

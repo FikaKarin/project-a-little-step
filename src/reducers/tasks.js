@@ -31,6 +31,7 @@ export const tasksSlice = createSlice({
       };
       state.allTasks.push(newTask);
     },
+    
     undoChosenTask: (state, action) => {
       const { taskId } = action.payload;
       const undoneTask = state.chosenTasks.find((task) => task.id === taskId);
@@ -155,25 +156,16 @@ export const tasksSlice = createSlice({
     toggleTaskChosen: (state, action) => {
       const taskId = action.payload;
       const taskIndex = state.allTasks.findIndex((task) => task.id === taskId);
-
+    
       if (taskIndex !== -1) {
         const updatedAllTasks = [...state.allTasks];
-        updatedAllTasks[taskIndex] = {
-          ...updatedAllTasks[taskIndex],
-          chosen: !updatedAllTasks[taskIndex].chosen,
-        };
-
+        const chosenTask = updatedAllTasks.splice(taskIndex, 1)[0];
+        chosenTask.chosen = true;
+    
         state.allTasks = updatedAllTasks;
-
-        if (updatedAllTasks[taskIndex].chosen) {
-          state.chosenTasks.push(updatedAllTasks[taskIndex]);
-        } else {
-          state.chosenTasks = state.chosenTasks.filter(
-            (task) => task.id !== taskId
-          );
-        }
+        state.chosenTasks.push(chosenTask);
       }
-    },
+    },    
 
     // Start a new day by resetting chosenToday array and unchecking all chosen tasks
     startNewDay: (state) => {

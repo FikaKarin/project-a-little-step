@@ -35,6 +35,7 @@ export const CompletedTasks = () => {
   return (
     <CompletedTaskListWrapper>
       <h2>Completed ({completedTasks.length})</h2>
+      <AchievementsList completedTasks={completedTasks} />
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
@@ -59,7 +60,6 @@ export const CompletedTasks = () => {
           </li>
         ))}
       </ul>
-      <AchievementsList completedTasks={completedTasks} />
 
       {/* Button to go back to TaskContainer (bottom left corner) */}
       <BottomLeftButton onClick={handleGoToTaskContainer}>

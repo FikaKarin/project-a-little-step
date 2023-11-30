@@ -29,6 +29,8 @@ export const TaskForm = () => {
       <h2>Add Step</h2>
       <input
         type='text'
+        id='newTaskInput'
+        name='newTask'
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
         placeholder='Enter task'

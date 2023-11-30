@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import {
   toggleTaskChosen,
-  removeTask,
   undoRemoveTask,
   startNewDay,
 } from '../../reducers/tasks';
@@ -15,7 +14,6 @@ import { FaUndo } from 'react-icons/fa';
 export const TaskList = () => {
   const allTasks = useSelector((state) => state.tasks.allTasks);
   const chosenToday = useSelector((state) => state.tasks.chosenTasks);
-  // const removedTasks = useSelector((state) => state.tasks.removedTasks);
   const dispatch = useDispatch();
   const [newTask, setNewTask] = useState({ text: '', dueDate: null });
   const [showChosen, setShowChosen] = useState(false);
@@ -49,11 +47,10 @@ export const TaskList = () => {
     return () => clearInterval(intervalId);
   }, [dispatch]);
 
-
-
   const handleToggleChosen = (taskId) => {
     dispatch(toggleTaskChosen(taskId));
-  };  
+  };
+  
 
   const handleUndoRemoveTask = () => {
     dispatch(undoRemoveTask());
@@ -147,4 +144,3 @@ const TaskListWrapper = styled.div`
     }
   }
 `;
-
