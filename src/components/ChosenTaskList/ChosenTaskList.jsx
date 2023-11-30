@@ -21,7 +21,7 @@ export const ChosenTaskList = () => {
   const handleUndoChosenTask = (taskId) => {
     dispatch(undoChosenTask({ taskId }));
   };
-
+  
   return (
     <ChosenTaskListWrapper>
       <h2>Chosen ({chosenTasks.length})</h2>
@@ -29,6 +29,8 @@ export const ChosenTaskList = () => {
         <ul>
           {chosenTasks.map((task) => (
             <li key={task.id}>
+              {' '}
+              {/* Update key to use the new ID */}
               <ChosenTaskText>{task.task}</ChosenTaskText>
               <ButtonWrapper>
                 <FaCheckCircleStyled

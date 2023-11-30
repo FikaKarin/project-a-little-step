@@ -1,6 +1,7 @@
 // Import createSlice function from Redux Toolkit and tasksData from tasks.json
 import { createSlice } from '@reduxjs/toolkit';
 import tasksData from '../tasks.json';
+import { v4 as uuidv4 } from 'uuid'; // Import uuid
 
 // Create a slice for tasks with initial state and reducers
 export const tasksSlice = createSlice({
@@ -22,10 +23,10 @@ export const tasksSlice = createSlice({
     addTask: (state, action) => {
       const { task, dueDate } = action.payload;
       const newTask = {
-        id: Date.now(),
+        id: uuidv4(), // Use uuid for generating a unique ID
         task,
         chosen: false,
-        createdAt: new Date().toISOString(), // Convert to a string
+        createdAt: new Date().toISOString(),
         dueDate,
       };
       state.allTasks.push(newTask);

@@ -38,6 +38,8 @@ export const CompletedTasks = () => {
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
+            {' '}
+            {/* Update key to use the new ID */}
             <CompletedTaskText>{task.task}</CompletedTaskText>
             <p>Completed on: {formatDate(task.completedAt)}</p>
             <FaUndo
@@ -75,7 +77,7 @@ const CompletedTaskListWrapper = styled.div`
   padding-bottom: 8px;
   max-width: 600px;
   margin: 0 auto;
-  
+
   h2 {
     font-size: 1.2rem;
     margin-bottom: 18px;
