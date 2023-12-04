@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import tasksReducer from '../reducers/tasks';
 import { StartContainer } from '../components/StartContainer/StartContainer';
 import { HeaderContainer } from '../components/HeaderContainer/HeaderContainer';
+import { colors } from '../components/theme';
+import backgroundImage from '../assets/backHome.jpg'; // Import your background image
 
 // Combine reducers
 const reducer = combineReducers({
@@ -20,27 +22,29 @@ const store = configureStore({
 export const Home = () => {
   return (
     <Provider store={store}>
-      <div>
+      <StyledHomeWrapper>
         <HeaderContainer />
-        <HomeWrapper>
-          <StartContainer />
-        </HomeWrapper>
-      </div>
+        <StartContainer />
+      </StyledHomeWrapper>
     </Provider>
   );
 };
 
-// Styled component for the HomeWrapper
-const HomeWrapper = styled.div`
+const StyledHomeWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  max-width: 900px;
-  padding: 8px;
+  max-width: 700px;
+  padding: 36px;
+  background-color: ${colors.background};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  background: url(${backgroundImage}) center/cover; // Set background image
+  height: 100vh; /* Set the entire viewport height */
 
-  @media (max-width: 280px) {
-    padding: 0;
+  &:hover {
+    transform: scale(1.01);
   }
 `;
-
-

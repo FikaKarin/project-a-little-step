@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Lottie } from '../Lottie/Lottie';
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Welcome = ({ onTimeout }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -17,27 +18,43 @@ export const Welcome = ({ onTimeout }) => {
   }, [onTimeout, navigate]);
 
   return (
-    <div
-      style={{
-        width: '500px',
-        height: '500px',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        display: isVisible ? 'flex' : 'none',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#3498db',
-        color: 'white',
-        borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-      }}
-    >
-      <h1 style={{ margin: '0' }}>Welcome to A Little Step!</h1>
-      <p style={{ margin: '10px 0', fontSize: '16px' }}>Taking small steps for a big impact.</p>
+    <WelcomeWrapper isVisible={isVisible}>
+      <WelcomeTitle>Welcome to A Little Step!</WelcomeTitle>
+      <WelcomeSubtitle>Taking small steps for a big impact.</WelcomeSubtitle>
       <Lottie />
-    </div>
+    </WelcomeWrapper>
   );
 };
+
+const WelcomeWrapper = styled.div`
+  max-width: 90%;
+  width: 500px; /* Set a fixed width */
+  margin: 0 auto;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #3498db;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+const WelcomeTitle = styled.h1`
+  margin: 0;
+  font-size: 2rem;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const WelcomeSubtitle = styled.p`
+  margin: 15px 0;
+  font-size: 1.25rem;
+`;

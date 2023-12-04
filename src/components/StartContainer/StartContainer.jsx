@@ -1,9 +1,9 @@
-// StartContainer.jsx
 import React from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { About } from '../About/About'; // Import the About component
 import styled from 'styled-components';
+import { colors } from '../theme';
 
 export const StartContainer = () => {
   // Assuming you have access to completedTasks in your Redux store
@@ -15,42 +15,44 @@ export const StartContainer = () => {
     <TopWrapper>
       <About />
       <LinkContainer>
-        <StyledLink to='/task-container'>Go to Task Container</StyledLink>
+        <StyledLink to='/task-container'>Get Started</StyledLink>
       </LinkContainer>
     </TopWrapper>
   );
 };
 
 const TopWrapper = styled.div`
-  background-color: #ffffff8f;
-  padding: 6px;
-  margin: 16px 0px;
+  background-color: ${colors.background};
+  padding: 12px;
   border-radius: 4px;
-  box-shadow: -2px 1px 4px #0000009b;
+  box-shadow: -2px 1px 4px rgba(0, 0, 0, 0.1);
   max-width: 350px;
   margin: 0 auto;
-  position: relative; /* Make the container position relative */
+  position: relative;
+  opacity: 0.9;
 `;
 
 const LinkContainer = styled.div`
-display: flex;
-justify-content: flex-end;
-`
+  display: flex;
+  justify-content: flex-end;
+`;
 
-// Styled component for the Link
 const StyledLink = styled(Link)`
   display: flex;
-  width: 200px;
-  bottom: 16px; /* Adjust the bottom position as needed */
+  bottom: 16px;
   padding: 8px 16px;
-  background-color: #3498db;
+  background-color: ${colors.background};
   color: #fff;
   text-decoration: none;
+  color: black;
   border-radius: 4px;
-  font-weight: bold;
+  font-weight: 400;
   justify-content: flex-end;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 0.5px solid grey;
 
   &:hover {
-    background-color: #2980b9;
+    background-color: ${colors.secondary};
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;

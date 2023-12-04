@@ -7,6 +7,10 @@ import { Home } from './screens/Home';
 import { About } from './components/About/About';
 import { TaskContainer } from './components/TaskContainer/TaskContainer';
 import { CompletedTasks } from './components/CompletedTasks/CompletedTasks';
+import styled, { createGlobalStyle } from 'styled-components'; // Import createGlobalStyle
+import { colors } from './components/theme';
+import backgroundImage from './assets/backHome.jpg'; // Import your background image
+
 
 // Import your Redux store
 import { configureStore } from '@reduxjs/toolkit';
@@ -29,20 +33,31 @@ export const App = () => {
 
   return (
     <Provider store={store}>
+      <GlobalStyles backgroundImage={backgroundImage} />
       <Router>
         <Routes>
           {showWelcome && (
             <Route
-              path="/"
+              path='/'
               element={<Welcome onTimeout={handleWelcomeTimeout} />}
             />
           )}
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/task-container" element={<TaskContainer />} />
-          <Route path="/completed-tasks" element={<CompletedTasks />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/task-container' element={<TaskContainer />} />
+          <Route path='/completed-tasks' element={<CompletedTasks />} />
         </Routes>
       </Router>
     </Provider>
   );
 };
+
+const GlobalStyles = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: ${colors.background};
+    min-height: 100vh;
+    background: url(${(props) => props.backgroundImage}) center/cover; // Set background image
+  }
+`;

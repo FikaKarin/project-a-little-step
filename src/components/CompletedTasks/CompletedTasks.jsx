@@ -5,6 +5,7 @@ import { undoCompleteTask } from '../../reducers/tasks';
 import { FaUndo } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { AchievementsList } from '../AchievementsList/AchievementsList';
+import { colors } from '../theme';
 
 export const CompletedTasks = () => {
   const completedTasks = useSelector(
@@ -39,29 +40,13 @@ export const CompletedTasks = () => {
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
-            {' '}
-            {/* Update key to use the new ID */}
             <CompletedTaskText>{task.task}</CompletedTaskText>
             <p>Completed on: {formatDate(task.completedAt)}</p>
-            <FaUndo
-              style={{
-                color: 'black',
-                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-                padding: '4px 8px',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontSize: '33px',
-                alignSelf: 'flex-end',
-                fontWeight: '600',
-                marginLeft: '8px',
-              }}
-              onClick={() => handleUndoCompleteTask(task.id)}
-            />
+            <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
           </li>
         ))}
       </ul>
-
-      {/* Button to go back to TaskContainer (bottom left corner) */}
+  
       <BottomLeftButton onClick={handleGoToTaskContainer}>
         Go to Task Container
       </BottomLeftButton>
@@ -69,69 +54,90 @@ export const CompletedTasks = () => {
   );
 };
 
+
 const CompletedTaskListWrapper = styled.div`
+display: flex;
+flex-direction: column;
+padding-left: 16px;
+border-radius: 6px;
+padding-bottom: 8px;
+max-width: 600px;
+margin: 0 auto;
+background-color: white;
+opacity: 0.9;
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+  color: ${colors.primary};
+}
+
+p {
+  font-size: 12px;
+  color: ${colors.text};
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 16px;
   display: flex;
-  flex-direction: column; // Stack vertically
-  padding-left: 16px;
-  border-radius: 6px;
-  padding-bottom: 8px;
-  max-width: 600px;
-  margin: 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 18px;
+  &:hover {
+    transform: scale(1.1);
   }
 
+  &.added-to-list {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@media (max-width: 420px) {
+  h2,
   p {
-    font-size: 12px;
+    font-size: 85%;
   }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    &.added-to-list {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  }
-
-  @media (max-width: 420px) {
-    h2,
-    p {
-      font-size: 85%;
-    }
-  }
+}
 `;
 
 const CompletedTaskText = styled.span`
-  margin-bottom: 8px;
-  text-decoration: line-through;
-  color: #888;
+margin-bottom: 8px;
+text-decoration: line-through;
+color: #888;
 `;
 
 const BottomLeftButton = styled.button`
-  bottom: 8px;
-  left: 8px;
-  background-color: #3498db;
-  color: white;
-  padding: 8px;
-  border: none;
+bottom: 8px;
+left: 8px;
+background-color: ${colors.primary};
+color: ${colors.text};
+padding: 8px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 150px;
+`;
+
+const UndoIcon = styled(FaUndo)`
+  color: ${colors.accent};
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  width: 150px;
+  font-size: 33px;
+  align-self: flex-end;
+  font-weight: 600;
+  margin-left: 8px;
+
+  &:hover {
+    color: ${colors.secondary};
+  }
 `;

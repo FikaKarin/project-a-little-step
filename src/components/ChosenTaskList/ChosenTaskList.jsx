@@ -3,38 +3,45 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { completeTask, undoChosenTask } from '../../reducers/tasks';
 import { FaCheckCircle, FaUndo } from 'react-icons/fa';
+import { CompletedTaskPopup } from '../CompletedTaskPopUp/CompletedTaskPopUp';
+import { colors } from '../theme';
 
 export const ChosenTaskList = () => {
   const dispatch = useDispatch();
   const chosenTasks = useSelector((state) => state.tasks.chosenTasks || []);
+  const [completedTaskPopup, setCompletedTaskPopup] = React.useState(null);
 
-  // useEffect to handle the updated chosenTasks
+  const handleCompleteTask = (taskId, taskName) => {
+    dispatch(completeTask({ taskId }));
+    setCompletedTaskPopup({
+      key: taskId,
+      task: taskName,
+      onComplete: () => setCompletedTaskPopup(null),
+    });
+  };
+  
+
+  const handleUndoChosenTask = (taskId) => {
+    dispatch(undoChosenTask({ taskId }));
+  };
+
   useEffect(() => {
     // You can add any logic here that needs to run when chosenTasks are updated
     console.log('ChosenTasks updated:', chosenTasks);
   }, [chosenTasks]);
 
-  const handleCompleteTask = (taskId) => {
-    dispatch(completeTask({ taskId }));
-  };
-
-  const handleUndoChosenTask = (taskId) => {
-    dispatch(undoChosenTask({ taskId }));
-  };
-  
   return (
     <ChosenTaskListWrapper>
       <h2>Chosen ({chosenTasks.length})</h2>
+      {completedTaskPopup && <CompletedTaskPopup {...completedTaskPopup} />}
       {chosenTasks.length > 0 ? (
         <ul>
           {chosenTasks.map((task) => (
             <li key={task.id}>
-              {' '}
-              {/* Update key to use the new ID */}
               <ChosenTaskText>{task.task}</ChosenTaskText>
               <ButtonWrapper>
                 <FaCheckCircleStyled
-                  onClick={() => handleCompleteTask(task.id)}
+                  onClick={() => handleCompleteTask(task.id, task.task)}
                 />
                 <FaUndoStyled onClick={() => handleUndoChosenTask(task.id)} />
               </ButtonWrapper>

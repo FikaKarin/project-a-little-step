@@ -45,28 +45,24 @@ export const TaskForm = () => {
 };
 
 const TaskFormWrapper = styled.div`
-  padding-bottom: 20px;
-  padding-right: 6px;
+  padding: 20px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
   }
 
   input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
   }
 `;
 
@@ -76,7 +72,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 8px 16px;
+  padding: 6px 10px;
   color: black;
   border: none;
   border-radius: 4px;
@@ -85,8 +81,8 @@ const Button = styled.button`
   font-weight: 600;
 
   &:hover {
-    background-color: #45a049;
-    padding: 10px 18px;
+    background-color: #45a049a6;
+    padding: 8px 12px;
     transition: ease-in 0.2s;
     color: white;
   }
@@ -94,7 +90,7 @@ const Button = styled.button`
 
 const StyledPlus = styled(FaPlus)`
   font-size: 20px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in;
 
   &:hover {
     transform: rotate(360deg);
