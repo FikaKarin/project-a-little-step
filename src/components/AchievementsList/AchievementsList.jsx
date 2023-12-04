@@ -17,7 +17,7 @@ export const AchievementsList = ({ completedTasks }) => {
       {shouldRenderCompletedLottie &&
         completedTasks.map((task) => (
           <StyledLottieWrapper key={task.id}>
-            <StyledCompleteLottie height={80} />
+            <StyledCompleteLottie width={60} height={60} />
             <h4>Great job!</h4>
           </StyledLottieWrapper>
         ))}

@@ -6,7 +6,7 @@ import tasksReducer from '../../reducers/tasks';
 import { TaskList } from '../../components/TaskList/TaskList';
 import { ChosenTaskList } from '../../components/ChosenTaskList/ChosenTaskList';
 import { TaskForm } from '../Taskform/TaskForm';
-import { CompletedTasks } from '../CompletedTasks/CompletedTasks'; // Import CompletedTasks component
+import { HeaderContainer } from '../HeaderContainer/HeaderContainer';
 import { colors } from '../theme';
 
 // Add this line to import Container
@@ -39,6 +39,7 @@ export const TaskContainer = () => {
   return (
     <Container>
       <TaskContainerWrapper>
+        <HeaderContainer />
         <TaskForm />
         <TaskList style={{ marginBottom: '24px' }} />
         <ChosenTaskList style={{ marginBottom: '24px' }} />

@@ -37,6 +37,11 @@ const PopupWrapper = styled.div`
   display: flex;
   align-items: center;
   z-index: 9999; // Set a high z-index value
+  width: 70%; // Adjust the width as needed
+
+  @media (max-width: 600px) {
+    width: 90%; // Adjust the width for smaller screens
+  }
 `;
 
 const CheckIcon = styled(FaCheckCircle)`

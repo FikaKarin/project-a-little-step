@@ -46,7 +46,7 @@ export const CompletedTasks = () => {
           </li>
         ))}
       </ul>
-  
+
       <BottomLeftButton onClick={handleGoToTaskContainer}>
         Go to Task Container
       </BottomLeftButton>
@@ -54,76 +54,81 @@ export const CompletedTasks = () => {
   );
 };
 
+// ... existing imports ...
 
 const CompletedTaskListWrapper = styled.div`
-display: flex;
-flex-direction: column;
-padding-left: 16px;
-border-radius: 6px;
-padding-bottom: 8px;
-max-width: 600px;
-margin: 0 auto;
-background-color: white;
-opacity: 0.9;
-
-h2 {
-  font-size: 1.2rem;
-  margin-bottom: 18px;
-  color: ${colors.primary};
-}
-
-p {
-  font-size: 12px;
-  color: ${colors.text};
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  padding: 32px;
+  border-radius: 6px;
+  padding-bottom: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  opacity: 0.9;
+  overflow: hidden; /* Hide the overflowing content */
 
-  &:hover {
-    transform: scale(1.1);
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: ${colors.primary};
   }
 
-  &.added-to-list {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-@media (max-width: 420px) {
-  h2,
   p {
-    font-size: 85%;
+    font-size: 12px;
+    color: ${colors.text};
   }
-}
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 350px; /* Set the maximum height */
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+    padding-top: 32px;
+  }
+
+  li {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.added-to-list {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  @media (max-width: 420px) {
+    h2,
+    p {
+      font-size: 85%;
+    }
+  }
 `;
 
 const CompletedTaskText = styled.span`
-margin-bottom: 8px;
-text-decoration: line-through;
-color: #888;
+  margin-bottom: 8px;
+  text-decoration: line-through;
+  color: #888;
 `;
 
 const BottomLeftButton = styled.button`
-bottom: 8px;
-left: 8px;
-background-color: ${colors.primary};
-color: ${colors.text};
-padding: 8px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-width: 150px;
+  bottom: 8px;
+  left: 8px;
+  background-color: ${colors.primary};
+  color: ${colors.text};
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 150px;
 `;
 
 const UndoIcon = styled(FaUndo)`

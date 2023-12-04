@@ -45,7 +45,7 @@ export const TaskForm = () => {
 };
 
 const TaskFormWrapper = styled.div`
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;

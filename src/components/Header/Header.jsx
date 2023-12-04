@@ -25,7 +25,7 @@ const HeaderWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 8px;
-  width: 350px;
+  max-width: 350px;
 `;
 
 const Logo = styled.h1`

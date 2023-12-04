@@ -1,14 +1,13 @@
-// Lottie.jsx
+// CompleteLottie.jsx
 import React from 'react';
-import LottieReact from 'lottie-react'; // Update the import
+import LottieReact from 'lottie-react';
 
 import animationData from '../../assets/complete.json';
 
-export const CompleteLottie = () => {
+export const CompleteLottie = ({ width, height }) => {
   return (
-    <div>
+    <div style={{ width, height }}>
       <LottieReact animationData={animationData} />
     </div>
   );
 };
-
