@@ -59,6 +59,7 @@ const ChosenTaskListWrapper = styled.div`
   margin-bottom: 20px;
   width: 100%;
   padding: 0 6px;
+  background-color: #ffff0015;
 
   h2 {
     font-size: 1.2rem;
@@ -121,6 +122,7 @@ const FaCheckCircleStyled = styled(FaCheckCircle)`
   margin-right: 8px; // Add some space between the icons
   margin-bottom: 8px; // Add space between the icons and the bottom
   transition: ease-in 0.3s;
+  background-color: white;
 
   &:hover {
     transition: ease-in 0.3s;
@@ -137,6 +139,7 @@ const FaUndoStyled = styled(FaUndo)`
   margin-right: 8px; // Add some space between the icons
   margin-bottom: 8px; // Add space between the icons and the bottom
   transition: ease-in 0.3s;
+  background-color: white;
 
   &:hover {
     transition: ease-in 0.3s;

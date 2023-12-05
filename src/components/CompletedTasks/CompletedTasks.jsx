@@ -35,8 +35,9 @@ export const CompletedTasks = () => {
 
   return (
     <CompletedTaskListWrapper>
-      <h2>Completed ({completedTasks.length})</h2>
+      <h2>Achievements ({completedTasks.length})</h2>
       <AchievementsList completedTasks={completedTasks} />
+      <h2>Completed</h2>
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
@@ -63,7 +64,7 @@ const CompletedTaskListWrapper = styled.div`
   flex-direction: column;
   padding: 32px;
   border-radius: 6px;
-  padding-bottom: 8px;
+  padding-bottom: 18px;
   margin: 0 auto;
   background-color: white;
   opacity: 0.9;
@@ -113,7 +114,7 @@ const CompletedTaskListWrapper = styled.div`
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
     &:hover {
-      transform: scale(0.95);
+      transform: scale(0.99);
     }
 
     &.added-to-list {
@@ -146,6 +147,7 @@ const BottomLeftButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   width: 150px;
+  font-weight: 600;
 `;
 
 const UndoIcon = styled(FaUndo)`

@@ -4,15 +4,6 @@ import { FaPlus } from 'react-icons/fa';
 import { addTask } from '../../reducers/tasks';
 import styled, { keyframes } from 'styled-components';
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
 export const TaskForm = () => {
   const dispatch = useDispatch();
   const [newTask, setNewTask] = useState('');
@@ -47,8 +38,8 @@ export const TaskForm = () => {
 const TaskFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border-top: 1px solid black;
-  padding: 10px;
+  background-color: #00800012;
+  padding: 0px 8px;
 
   h2 {
     font-size: 1.2rem;
@@ -77,8 +68,8 @@ const Button = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 2px 2px 4px black;
   font-weight: 600;
+  background-color: white;
 
   &:hover {
     background-color: #45a049a6;

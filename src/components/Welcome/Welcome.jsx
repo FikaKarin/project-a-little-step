@@ -12,7 +12,7 @@ export const Welcome = ({ onTimeout }) => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onTimeout(navigate); // Pass navigate function to onTimeout
-    }, 6500);
+    }, 9000);
 
     return () => clearTimeout(timer);
   }, [onTimeout, navigate]);

@@ -97,10 +97,10 @@ export const TaskList = () => {
 
 const TaskListWrapper = styled.div`
   flex: 1;
-  margin: 0 auto;
-  width: 100%;
   max-height: 400px; /* Set maximum height */
   overflow-y: auto; /* Add vertical scrollbar if needed */
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   ul {
     list-style: none;
@@ -112,7 +112,6 @@ const TaskListWrapper = styled.div`
   li {
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 20px;
 
     &:last-child {
       margin-bottom: 0;

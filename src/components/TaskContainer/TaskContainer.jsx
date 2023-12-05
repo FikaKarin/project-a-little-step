@@ -6,7 +6,6 @@ import tasksReducer from '../../reducers/tasks';
 import { TaskList } from '../../components/TaskList/TaskList';
 import { ChosenTaskList } from '../../components/ChosenTaskList/ChosenTaskList';
 import { TaskForm } from '../Taskform/TaskForm';
-import { HeaderContainer } from '../HeaderContainer/HeaderContainer';
 import { colors } from '../theme';
 
 // Add this line to import Container
@@ -39,7 +38,6 @@ export const TaskContainer = () => {
   return (
     <Container>
       <TaskContainerWrapper>
-        <HeaderContainer />
         <TaskForm />
         <TaskList style={{ marginBottom: '24px' }} />
         <ChosenTaskList style={{ marginBottom: '24px' }} />
@@ -102,6 +100,7 @@ const BottomRightButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
 
   @media (max-width: 420px) {
     font-size: 14px; /* Adjust font size for smaller screens */
