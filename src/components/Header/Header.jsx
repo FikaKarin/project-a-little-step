@@ -17,11 +17,8 @@ const HeaderWrapper = styled.div`
   justify-content: center;
   text-align: center;
   margin-top: 32px;
-  background-color: ${colors.primary};
-  color: #fff;
+  color: black;
   padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 8px;

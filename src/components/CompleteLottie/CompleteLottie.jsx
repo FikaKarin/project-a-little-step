@@ -7,7 +7,7 @@ import animationData from '../../assets/complete.json';
 export const CompleteLottie = ({ width, height }) => {
   return (
     <div style={{ width, height }}>
-      <LottieReact animationData={animationData} />
+      <LottieReact animationData={animationData} style={{color: 'green'}}/>
     </div>
   );
 };

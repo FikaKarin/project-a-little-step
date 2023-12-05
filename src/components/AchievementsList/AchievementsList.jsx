@@ -42,4 +42,9 @@ const StyledLottieWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h4{
+    font-size: 12px;
+    color: green;
+  }
 `;

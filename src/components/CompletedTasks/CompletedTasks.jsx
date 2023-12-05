@@ -54,19 +54,36 @@ export const CompletedTasks = () => {
   );
 };
 
-// ... existing imports ...
-
 const CompletedTaskListWrapper = styled.div`
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
   padding: 32px;
   border-radius: 6px;
   padding-bottom: 8px;
-  max-width: 600px;
   margin: 0 auto;
   background-color: white;
   opacity: 0.9;
   overflow: hidden; /* Hide the overflowing content */
+  width: 90%; // Adjust the width for smaller screens
+
+  @media (max-width: 360px) {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: none;
+    padding: 6px;
+    width: 100%;
+  }
+
+  @media (max-width: 850px) {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   h2 {
     font-size: 1.2rem;
@@ -96,7 +113,7 @@ const CompletedTaskListWrapper = styled.div`
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(0.95);
     }
 
     &.added-to-list {
@@ -123,7 +140,7 @@ const BottomLeftButton = styled.button`
   bottom: 8px;
   left: 8px;
   background-color: ${colors.primary};
-  color: ${colors.text};
+  color: ${colors.background};
   padding: 8px;
   border: none;
   border-radius: 4px;

@@ -4,7 +4,6 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import styled from 'styled-components';
 import tasksReducer from '../reducers/tasks';
 import { StartContainer } from '../components/StartContainer/StartContainer';
-import { HeaderContainer } from '../components/HeaderContainer/HeaderContainer';
 import { colors } from '../components/theme';
 import backgroundImage from '../assets/backHome.jpg'; // Import your background image
 
@@ -23,7 +22,6 @@ export const Home = () => {
   return (
     <Provider store={store}>
       <StyledHomeWrapper>
-        <HeaderContainer />
         <StartContainer />
       </StyledHomeWrapper>
     </Provider>

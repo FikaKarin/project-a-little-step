@@ -67,6 +67,12 @@ const TaskContainerWrapper = styled.div`
   margin: 0 auto;
   background-color: white;
   padding: 20px;
+  top: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; // Adjust the width for smaller screens
 `;
 
 const BottomButtonsWrapper = styled.div`
