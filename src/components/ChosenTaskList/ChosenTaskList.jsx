@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { completeTask, undoChosenTask } from '../../reducers/tasks';
 import { FaCheckCircle, FaUndo } from 'react-icons/fa';
 import { CompletedTaskPopup } from '../CompletedTaskPopUp/CompletedTaskPopUp';
-import { colors } from '../theme';
 
 export const ChosenTaskList = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ export const ChosenTaskList = () => {
   };
 
   useEffect(() => {
-    // You can add any logic here that needs to run when chosenTasks are updated
+    // Add any logic here that needs to run when chosenTasks are updated
     console.log('ChosenTasks updated:', chosenTasks);
   }, [chosenTasks]);
 
@@ -62,9 +61,9 @@ const ChosenTaskListWrapper = styled.div`
   background-color: #ffff0015;
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
     margin-bottom: 10px;
-    margin-bottom: 18px;
   }
 
   ul {

@@ -39,7 +39,7 @@ const TaskFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #00800012;
-  padding: 0px 8px;
+  padding: 10px 8px;
 
   h2 {
     font-size: 1.2rem;

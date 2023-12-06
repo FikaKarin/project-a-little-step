@@ -104,7 +104,7 @@ const TaskListWrapper = styled.div`
 
   ul {
     list-style: none;
-    padding: 0px;
+    padding: 15px 0px;
     flex-direction: column;
     align-items: center;
   }

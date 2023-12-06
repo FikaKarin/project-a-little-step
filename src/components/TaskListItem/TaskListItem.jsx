@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IoFootstepsOutline } from "react-icons/io5";
 
 export const TaskListItem = ({ task, handleToggleChosen }) => {
   const handleTaskClick = () => {
@@ -11,6 +12,7 @@ export const TaskListItem = ({ task, handleToggleChosen }) => {
     <TaskListItemWrapper>
       <li key={task.id} onClick={handleTaskClick}>
         <div>
+          <IoFootstepsOutlineStyled />
           <p>{task.task}</p>
           {task.readMoreLink && (
             <a
@@ -33,14 +35,14 @@ const TaskListItemWrapper = styled.div`
     align-items: center; /* Align items in a row */
     justify-content: space-between; /* Add space between items */
     margin-bottom: 10px;
-    margin-top: 8px;
-    margin-right: 10px;
-    padding: 8px;
-    border-bottom: 1px solid black;
+    margin-left: 5px;
+    padding: 10px;
+    border-bottom: 1px solid #0000005a;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
 
     &:hover {
       transform: scale(1.05);
+      background-color: #00800012;
     }
 
     &.added-to-list {
@@ -63,9 +65,15 @@ const TaskListItemWrapper = styled.div`
       margin-left: 10px; /* Add margin to the left of the paragraph */
     }
   }
+
   @media (max-width: 420px) {
     li {
       padding: 0;
     }
   }
+`;
+
+const IoFootstepsOutlineStyled = styled(IoFootstepsOutline)`
+  color: green;
+  font-size: 24px;
 `;
