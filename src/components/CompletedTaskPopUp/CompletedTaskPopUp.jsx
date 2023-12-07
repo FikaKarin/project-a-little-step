@@ -24,7 +24,6 @@ export const CompletedTaskPopup = ({ task, onComplete }) => {
     </PopupWrapper>
   ) : null;
 };
-
 const PopupWrapper = styled.div`
   position: fixed;
   top: 50%;
@@ -39,6 +38,7 @@ const PopupWrapper = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 9999; // Set a high z-index value
+  max-width: 350px;
   width: 70%; // Adjust the width as needed
   max-height: 100%; // Set a max height
 

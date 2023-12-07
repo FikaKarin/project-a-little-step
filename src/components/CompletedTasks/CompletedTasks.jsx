@@ -58,7 +58,7 @@ export const CompletedTasks = () => {
 const CompletedTaskListWrapper = styled.div`
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   flex-direction: column;
@@ -69,26 +69,22 @@ const CompletedTaskListWrapper = styled.div`
   background-color: white;
   opacity: 0.9;
   overflow: hidden; /* Hide the overflowing content */
+  max-width: 700px;
   width: 90%; // Adjust the width for smaller screens
 
-  @media (max-width: 360px) {
+  @media (max-width: 560px) {
     position: absolute;
-    top: 50%;
+    top: 5%;
     left: 0%;
     transform: none;
     padding: 6px;
     width: 100%;
   }
 
-  @media (max-width: 850px) {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   h2 {
     font-size: 1.2rem;
-    margin-bottom: 18px;
+    margin-top: 38px;
     color: ${colors.primary};
   }
 
@@ -99,11 +95,14 @@ const CompletedTaskListWrapper = styled.div`
 
   ul {
     list-style: none;
-    padding: 0;
+    padding: 12px;
     margin: 0;
+    margin-bottom: 10px;
     max-height: 350px; /* Set the maximum height */
     overflow-y: auto; /* Add vertical scrollbar if needed */
-    padding-top: 32px;
+    padding-top: 12px;
+    box-shadow: 0px 1px 4px black;
+    border-radius: 4px;
   }
 
   li {

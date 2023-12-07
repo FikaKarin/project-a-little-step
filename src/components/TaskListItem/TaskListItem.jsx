@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { IoFootstepsOutline } from "react-icons/io5";
+import { IoFootstepsOutline } from 'react-icons/io5';
 
 export const TaskListItem = ({ task, handleToggleChosen }) => {
   const handleTaskClick = () => {
@@ -12,7 +12,9 @@ export const TaskListItem = ({ task, handleToggleChosen }) => {
     <TaskListItemWrapper>
       <li key={task.id} onClick={handleTaskClick}>
         <div>
-          <IoFootstepsOutlineStyled />
+          <FootWrapper>
+            <IoFootstepsOutlineStyled />
+          </FootWrapper>
           <p>{task.task}</p>
           {task.readMoreLink && (
             <a
@@ -31,11 +33,7 @@ export const TaskListItem = ({ task, handleToggleChosen }) => {
 
 const TaskListItemWrapper = styled.div`
   li {
-    display: flex;
-    align-items: center; /* Align items in a row */
-    justify-content: space-between; /* Add space between items */
     margin-bottom: 10px;
-    margin-left: 5px;
     padding: 10px;
     border-bottom: 1px solid #0000005a;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
@@ -54,24 +52,26 @@ const TaskListItemWrapper = styled.div`
     }
 
     div {
-      width: 100%;
       display: flex;
-      align-items: center; /* Align items in a row */
+      align-items: center;
     }
 
     p {
       margin-bottom: 5px;
       color: black;
-      margin-left: 10px; /* Add margin to the left of the paragraph */
+      margin-left: 10px;
+      flex: 1; /* Allow the paragraph to take up the remaining space */
+      word-wrap: break-word; /* Ensure text wraps within the container */
     }
   }
 
   @media (max-width: 420px) {
     li {
-      padding: 0;
+      padding: 8px; /* Adjust padding for smaller screens */
     }
   }
 `;
+const FootWrapper = styled.div``;
 
 const IoFootstepsOutlineStyled = styled(IoFootstepsOutline)`
   color: green;

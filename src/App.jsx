@@ -7,12 +7,11 @@ import { Home } from './screens/Home';
 import { About } from './components/About/About';
 import { TaskContainer } from './components/TaskContainer/TaskContainer';
 import { CompletedTasks } from './components/CompletedTasks/CompletedTasks';
+import { Navbar } from './components/Navbar/Navbar'; 
 import styled, { createGlobalStyle } from 'styled-components'; // Import createGlobalStyle
 import { colors } from './components/theme';
-import backgroundImage from './assets/backHome.jpg'; // Import your background image
+import backgroundImage from './assets/backHome.jpg'; 
 
-
-// Import your Redux store
 import { configureStore } from '@reduxjs/toolkit';
 import tasksReducer from './reducers/tasks'; // Update the path accordingly
 
@@ -35,6 +34,7 @@ export const App = () => {
     <Provider store={store}>
       <GlobalStyles backgroundImage={backgroundImage} />
       <Router>
+        <Navbar /> {/* Include the Navbar component at the top */}
         <Routes>
           {showWelcome && (
             <Route

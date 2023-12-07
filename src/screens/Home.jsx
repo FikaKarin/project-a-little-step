@@ -1,30 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import tasksReducer from '../reducers/tasks';
 import { StartContainer } from '../components/StartContainer/StartContainer';
 import { colors } from '../components/theme';
-import backgroundImage from '../assets/backHome.jpg'; // Import your background image
+import backgroundImage from '../assets/backHome.jpg';
 
-// Combine reducers
-const reducer = combineReducers({
-  tasks: tasksReducer,
-});
-
-// Configure Redux store
-const store = configureStore({
-  reducer,
-});
-
-// Home component that uses the TaskContainer
 export const Home = () => {
   return (
-    <Provider store={store}>
-      <StyledHomeWrapper>
-        <StartContainer />
-      </StyledHomeWrapper>
-    </Provider>
+    <StyledHomeWrapper>
+      <StartContainer />
+    </StyledHomeWrapper>
   );
 };
 
@@ -40,9 +25,14 @@ const StyledHomeWrapper = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
   background: url(${backgroundImage}) center/cover; // Set background image
-  height: 100vh; /* Set the entire viewport height */
+  height: 100vh;
 
   &:hover {
     transform: scale(1.01);
+  }
+
+  @media (max-width: 620px) {
+    background: none; // Set background to none
+    padding: 16px;
   }
 `;

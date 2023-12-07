@@ -99,6 +99,7 @@ const TaskListWrapper = styled.div`
   flex: 1;
   max-height: 400px; /* Set maximum height */
   overflow-y: auto; /* Add vertical scrollbar if needed */
+  overflow-x: hidden; /* Hide horizontal scrollbar */  
   margin-top: 30px;
   margin-bottom: 30px;
 
@@ -112,6 +113,7 @@ const TaskListWrapper = styled.div`
   li {
     width: 100%;
     box-sizing: border-box;
+    
 
     &:last-child {
       margin-bottom: 0;

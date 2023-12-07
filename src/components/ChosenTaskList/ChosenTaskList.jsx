@@ -84,7 +84,7 @@ const ChosenTaskListWrapper = styled.div`
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.01);
     }
 
     &.added-to-list {

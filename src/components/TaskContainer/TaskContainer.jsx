@@ -59,24 +59,25 @@ export const TaskContainer = () => {
 const TaskContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-left: 16px;
   border-radius: 6px;
   max-width: 600px;
   margin: 0 auto;
   background-color: white;
   padding: 20px;
-  top: 10px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%; // Adjust the width for smaller screens
+  margin-top: 50px; /* Adjust the top margin as needed */
 `;
 
 const BottomButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+  width: 100%; /* Take up the full width of the container */
+  /* Position the buttons at the bottom */
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
 
 const BottomLeftButton = styled.button`

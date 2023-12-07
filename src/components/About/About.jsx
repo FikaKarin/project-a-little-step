@@ -32,6 +32,17 @@ const AboutWrapper = styled.div`
     color: ${colors.text};
     font-weight: 600;
   }
+
+  @media (max-width: 400px) {
+    p {
+      font-size: small;
+      color: black;
+
+      h2 {
+        fo
+      }
+    }
+  }
 `;
 
 const PWrapper = styled.div`
