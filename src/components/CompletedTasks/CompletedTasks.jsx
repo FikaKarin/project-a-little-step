@@ -1,18 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { undoCompleteTask } from '../../reducers/tasks';
 import { FaUndo } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { AchievementsList } from '../AchievementsList/AchievementsList';
 import { colors } from '../theme';
+import { undoCompleteTask } from '../../reducers/tasks';
+import { useNavigate } from 'react-router-dom';
 
 export const CompletedTasks = () => {
   const completedTasks = useSelector(
     (state) => state.tasks.completedTasks || []
   );
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleUndoCompleteTask = (taskId) => {
     dispatch(undoCompleteTask({ taskId }));
@@ -41,9 +41,11 @@ export const CompletedTasks = () => {
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
-            <CompletedTaskText>{task.task}</CompletedTaskText>
+            <TaskContent>
+              <CompletedTaskText>{task.task}</CompletedTaskText>
+              <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
+            </TaskContent>
             <p>Completed on: {formatDate(task.completedAt)}</p>
-            <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
           </li>
         ))}
       </ul>
@@ -57,30 +59,15 @@ export const CompletedTasks = () => {
 
 const CompletedTaskListWrapper = styled.div`
   display: flex;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   flex-direction: column;
   padding: 32px;
-  border-radius: 6px;
   padding-bottom: 18px;
   margin: 0 auto;
   background-color: white;
   opacity: 0.9;
-  overflow: hidden; /* Hide the overflowing content */
+  overflow: hidden;
   max-width: 700px;
-  width: 90%; // Adjust the width for smaller screens
-
-  @media (max-width: 560px) {
-    position: absolute;
-    top: 5%;
-    left: 0%;
-    transform: none;
-    padding: 6px;
-    width: 100%;
-  }
-
+  width: 90%;
 
   h2 {
     font-size: 1.2rem;
@@ -98,8 +85,8 @@ const CompletedTaskListWrapper = styled.div`
     padding: 12px;
     margin: 0;
     margin-bottom: 10px;
-    max-height: 350px; /* Set the maximum height */
-    overflow-y: auto; /* Add vertical scrollbar if needed */
+    max-height: 350px;
+    overflow-y: auto;
     padding-top: 12px;
     box-shadow: 0px 1px 4px black;
     border-radius: 4px;
@@ -130,10 +117,23 @@ const CompletedTaskListWrapper = styled.div`
   }
 `;
 
+const TaskContent = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+`;
+
 const CompletedTaskText = styled.span`
   margin-bottom: 8px;
   text-decoration: line-through;
   color: #888;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  ${(props) => props.expanded && 'white-space: normal;'}
 `;
 
 const BottomLeftButton = styled.button`

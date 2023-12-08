@@ -24,11 +24,6 @@ export const ChosenTaskList = () => {
     dispatch(undoChosenTask({ taskId }));
   };
 
-  useEffect(() => {
-    // Add any logic here that needs to run when chosenTasks are updated
-    console.log('ChosenTasks updated:', chosenTasks);
-  }, [chosenTasks]);
-
   return (
     <ChosenTaskListWrapper>
       <h2>Chosen ({chosenTasks.length})</h2>

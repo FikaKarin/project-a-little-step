@@ -33,21 +33,23 @@ export const App = () => {
   return (
     <Provider store={store}>
       <GlobalStyles backgroundImage={backgroundImage} />
-      <Router>
-        <Navbar /> {/* Include the Navbar component at the top */}
-        <Routes>
-          {showWelcome && (
-            <Route
-              path='/'
-              element={<Welcome onTimeout={handleWelcomeTimeout} />}
-            />
-          )}
-          <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/task-container' element={<TaskContainer />} />
-          <Route path='/completed-tasks' element={<CompletedTasks />} />
-        </Routes>
-      </Router>
+      <AppContainer>
+        <Router>
+          <Navbar /> {/* Include the Navbar component at the top */}
+          <Routes>
+            {showWelcome && (
+              <Route
+                path='/'
+                element={<Welcome onTimeout={handleWelcomeTimeout} />}
+              />
+            )}
+            <Route path='/home' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/task-container' element={<TaskContainer />} />
+            <Route path='/completed-tasks' element={<CompletedTasks />} />
+          </Routes>
+        </Router>
+      </AppContainer>
     </Provider>
   );
 };
@@ -60,4 +62,9 @@ const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     background: url(${(props) => props.backgroundImage}) center/cover; // Set background image
   }
+`;
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

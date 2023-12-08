@@ -61,12 +61,10 @@ const TaskContainerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-left: 16px;
-  border-radius: 6px;
   max-width: 600px;
   margin: 0 auto;
   background-color: white;
   padding: 20px;
-  margin-top: 50px; /* Adjust the top margin as needed */
 `;
 
 const BottomButtonsWrapper = styled.div`
