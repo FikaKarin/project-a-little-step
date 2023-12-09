@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Lottie } from '../components/Lottie/Lottie';
 
 export const LottieWrapper = ({ onTimeout }) => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {

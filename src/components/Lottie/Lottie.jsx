@@ -1,6 +1,6 @@
 // Lottie.jsx
 import React from 'react';
-import LottieReact from 'lottie-react'; // Update the import
+import LottieReact from 'lottie-react';
 
 import animationData from '../../assets/lottie.json';
 

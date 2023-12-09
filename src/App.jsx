@@ -54,13 +54,13 @@ export const App = () => {
   );
 };
 
-const GlobalStyles = createGlobalStyle<{ backgroundImage: string }>`
+const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
     background-color: ${colors.background};
     min-height: 100vh;
-    background: url(${(props) => props.backgroundImage}) center/cover; // Set background image
+    background: url(${props => props.backgroundImage}) center/cover; // Set background image
   }
 `;
 
