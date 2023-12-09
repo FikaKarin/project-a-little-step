@@ -9,7 +9,6 @@ import { TaskForm } from '../Taskform/TaskForm';
 import { colors } from '../theme';
 import { GoodLottie } from '../GoodLottie/GoodLottie';
 
-// Add this line to import Container
 const Container = styled.div`
   max-width: 800px; /* Adjust the max-width to your preference */
   margin: 0 auto;
@@ -44,10 +43,8 @@ export const TaskContainer = () => {
         <ChosenTaskList style={{ marginBottom: '24px' }} />
 
         <BottomButtonsWrapper>
-          {/* Button to go back to Home (bottom left corner) */}
           <BottomLeftButton onClick={handleGoHome}>Go Home</BottomLeftButton>
 
-          {/* Button to go to CompletedTasks (bottom right corner) */}
           <BottomRightButton onClick={handleGoToCompletedTasks}>
             Acheievements
           </BottomRightButton>

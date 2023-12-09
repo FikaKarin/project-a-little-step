@@ -41,18 +41,20 @@ const StyledLink = styled(Link)`
   display: flex;
   bottom: 16px;
   padding: 8px 16px;
-  background-color: ${colors.background};
   color: #fff;
   text-decoration: none;
   color: black;
   border-radius: 4px;
   font-weight: 400;
   justify-content: flex-end;
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: 0.1s ease-in;
   border: 0.5px solid grey;
+  background-color: white;
 
   &:hover {
-    background-color: ${colors.secondary};
+    background-color: #45a049a6;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    border: none;
   }
 `;

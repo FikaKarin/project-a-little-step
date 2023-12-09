@@ -37,10 +37,6 @@ const AboutWrapper = styled.div`
     p {
       font-size: small;
       color: black;
-
-      h2 {
-        fo
-      }
     }
   }
 `;

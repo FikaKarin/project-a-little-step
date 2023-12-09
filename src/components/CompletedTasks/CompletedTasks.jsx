@@ -176,7 +176,7 @@ const UndoIcon = styled(FaUndo)`
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 28px; /* Adjust the size as needed */
+  font-size: 28px; 
   font-weight: 600;
   margin-left: 8px;
 
@@ -189,5 +189,5 @@ const LottieContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px;
 `;
