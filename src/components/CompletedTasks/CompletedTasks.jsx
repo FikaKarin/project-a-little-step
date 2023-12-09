@@ -107,7 +107,7 @@ const ListContainer = styled.div`
     margin: 0;
     margin-bottom: 10px;
     padding-top: 12px;
-    max-height: 300px; /* Set the maximum height */
+    max-height: 300px; 
     overflow-y: auto;
   }
 

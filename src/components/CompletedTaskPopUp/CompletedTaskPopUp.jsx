@@ -36,18 +36,18 @@ const PopupWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 9999; // Set a high z-index value
+  z-index: 9999; 
   max-width: 350px;
-  width: 70%; // Adjust the width as needed
-  max-height: 100%; // Set a max height
+  width: 70%; 
+  max-height: 100%; 
 
   @media (max-width: 600px) {
-    width: 90%; // Adjust the width for smaller screens
+    width: 90%; 
   }
 `;
 
 const CheckIcon = styled(FaCheckCircle)`
   color: ${colors.primary};
-  font-size: 48px; // Adjust the size as needed
-  margin-bottom: 16px; // Add margin to separate the icon from the text
+  font-size: 48px; 
+  margin-bottom: 16px; 
 `;

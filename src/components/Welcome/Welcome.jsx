@@ -10,7 +10,7 @@ export const Welcome = ({ onTimeout }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-      onTimeout(navigate); // Pass navigate function to onTimeout
+      onTimeout(navigate); 
     }, 5000);
 
     return () => clearTimeout(timer);

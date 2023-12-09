@@ -36,11 +36,10 @@ const StyledNavbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff35;
-  border-bottom: 1px solid #ffffff88;
-  padding: 10px 16px; /* Adjust the padding as needed */
+  padding: 10px 16px; 
   width: 100%; /* Make the Navbar as wide as its container */
   max-width: 700px; /* Set the maximum width for NavLinks */
-  margin: 0 auto; /* Center the Navbar */
+  margin: 0 auto; 
 `;
 
 const Logo = styled(Link)`
@@ -73,7 +72,7 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  padding: 8px; /* Adjust the padding as needed */
+  padding: 8px; 
   display: flex;
   align-items: center;
 
@@ -82,6 +81,6 @@ const NavLink = styled(Link)`
   }
 
   svg {
-    margin-right: 4px; /* Adjust the margin as needed */
+    margin-right: 4px; 
   }
 `;
