@@ -76,7 +76,7 @@ const CompletedTaskListWrapper = styled.div`
   overflow: hidden;
   max-width: 700px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   h2 {
     font-size: 1.2rem;
