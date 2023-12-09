@@ -45,14 +45,14 @@ export const CompletedTasks = () => {
             {completedTasks.map((task) => (
               <li key={task.id}>
                 <TaskContent>
-                  <CompletedTaskText>
-                    {task.task}
-                  </CompletedTaskText>
+                  <CompletedTaskText>{task.task}</CompletedTaskText>
                   <UndoIconContainer>
                     <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
                   </UndoIconContainer>
                 </TaskContent>
-                <p>Completed on: {formatDate(task.completedAt)}</p>
+                <ResponsiveParagraph>
+                  Completed on: {formatDate(task.completedAt)}
+                </ResponsiveParagraph>
               </li>
             ))}
           </ul>
@@ -72,6 +72,7 @@ export const CompletedTasks = () => {
 const CompletedTaskListContainer = styled.div`
   height: 100vh;
   display: flex;
+  flex: 1;
   flex-direction: column;
 `;
 
@@ -101,7 +102,7 @@ const ListContainer = styled.div`
     margin: 0;
     margin-bottom: 10px;
     padding-top: 12px;
-    max-height: 300px; 
+    max-height: 300px;
     overflow-y: auto;
   }
 
@@ -137,10 +138,17 @@ const CompletedTaskText = styled.span`
   color: #888;
   cursor: pointer;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  white-space: wrap;
 
   ${(props) => props.expanded && 'white-space: normal;'}
+`;
+
+const ResponsiveParagraph = styled.p`
+  font-size: 12px;
+
+  @media (max-width: 420px) {
+    font-size: 10px;
+  }
 `;
 
 const BottomLeftButton = styled.button`
