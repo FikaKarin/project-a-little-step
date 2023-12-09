@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FaCheckCircle } from 'react-icons/fa';
-import { CompleteLottie } from '../CompleteLottie/CompleteLottie'; // Import your CompleteLottie component
 import { colors } from '../theme';
 
 export const CompletedTaskPopup = ({ task, onComplete }) => {
@@ -19,7 +18,9 @@ export const CompletedTaskPopup = ({ task, onComplete }) => {
   return isVisible ? (
     <PopupWrapper>
       <CheckIcon />
-      <p>{task}</p>
+      <PopupContent>
+        <p>{task}</p>
+      </PopupContent>
     </PopupWrapper>
   ) : null;
 };
@@ -40,16 +41,24 @@ const PopupWrapper = styled.div`
   z-index: 9999; 
   max-width: 350px;
   width: 70%; 
-  max-height: 100%; 
-  word-wrap: break-word; /* Allows long words to be broken and wrap onto the next line */
-  white-space: pre-line; /* Handles newlines in the text */
-  overflow: hidden; /* Hides any text beyond the max height */
+  word-wrap: break-word;
+  white-space: pre-line;
 
   @media (max-width: 600px) {
     width: 90%; 
   }
 `;
 
+const PopupContent = styled.div`
+  max-width: 100%;
+  width: 100%;
+  overflow-wrap: break-word; /* Allow breaking of long words */
+  word-wrap: break-word; /* Fallback for older browsers */
+
+  p {
+    margin: 0;
+  }
+`;
 
 const CheckIcon = styled(FaCheckCircle)`
   color: ${colors.primary};
