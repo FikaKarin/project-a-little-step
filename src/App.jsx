@@ -48,7 +48,7 @@ export const App = () => {
             <Route path='/completed-tasks' element={<CompletedTasks />} />
           </Routes>
         </Router>
-        <Footer />
+        {showWelcome && <Footer />} {/* Render Footer only when Welcome is shown */}
       </AppContainer>
     </Provider>
   );
@@ -67,6 +67,7 @@ const GlobalStyles = createGlobalStyle`
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
 `;
 
 const Footer = () => {
@@ -106,6 +107,9 @@ const StyledFooter = styled.footer`
   color: white;
   padding: 20px;
   text-align: center;
+  position: absolute;
+  bottom: 0; /* Stick to the bottom */
+  width: 100%; /* Full width */
 `;
 
 const Copyright = styled.div`

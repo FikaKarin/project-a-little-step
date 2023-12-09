@@ -17,24 +17,25 @@ export const Welcome = ({ onTimeout }) => {
   }, [onTimeout, navigate]);
 
   return (
-    <WelcomeWrapper isVisible={isVisible}>
-      <WelcomeTitle>Welcome to A Little Step!</WelcomeTitle>
-      <WelcomeSubtitle>Taking small steps for a big impact.</WelcomeSubtitle>
-      <Lottie />
-    </WelcomeWrapper>
+    <>
+      {isVisible && (
+        <WelcomeWrapper>
+          <WelcomeTitle>Welcome to A Little Step!</WelcomeTitle>
+          <WelcomeSubtitle>Taking small steps for a big impact.</WelcomeSubtitle>
+          <Lottie />
+        </WelcomeWrapper>
+      )}
+    </>
   );
 };
 
 const WelcomeWrapper = styled.div`
   max-width: 90%;
-  width: 500px; /* Set a fixed width */
+  width: 500px;
   margin: 0 auto;
   padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: ${(props) => (props.isVisible ? 'flex' : 'none')};
+  position: relative; /* Change position to relative */
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -42,6 +43,7 @@ const WelcomeWrapper = styled.div`
   color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20vh; /* Adjust the margin as needed */
 `;
 
 const WelcomeTitle = styled.h1`

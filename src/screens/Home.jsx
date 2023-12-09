@@ -25,7 +25,8 @@ const StyledHomeWrapper = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
   background: url(${backgroundImage}) center/cover; // Set background image
-  height: 100vh;
+  min-height: 100vh;  // Use min-height instead of height
+  flex: 1; // Use flex: 1 to take up all available vertical space
 
   &:hover {
     transform: scale(1.01);
