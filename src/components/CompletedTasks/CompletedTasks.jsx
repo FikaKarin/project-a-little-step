@@ -35,37 +35,48 @@ export const CompletedTasks = () => {
   };
 
   return (
-    <CompletedTaskListWrapper>
-      <h2>Achievements ({completedTasks.length})</h2>
-      <AchievementsList completedTasks={completedTasks} />
-      <h2>Completed</h2>
-      <ListContainer>
-        <ul>
-          {completedTasks.map((task) => (
-            <li key={task.id}>
-              <TaskContent>
-                <CompletedTaskText>{task.task}</CompletedTaskText>
-                <UndoIconContainer>
-                  <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
-                </UndoIconContainer>
-              </TaskContent>
-              <p>Completed on: {formatDate(task.completedAt)}</p>
-            </li>
-          ))}
-        </ul>
-      </ListContainer>
+    <CompletedTaskListContainer>
+      <CompletedTaskListWrapper>
+        <h2>Achievements ({completedTasks.length})</h2>
+        <AchievementsList completedTasks={completedTasks} />
+        <h2>Completed</h2>
+        <ListContainer>
+          <ul>
+            {completedTasks.map((task) => (
+              <li key={task.id}>
+                <TaskContent>
+                  <CompletedTaskText>
+                    {task.task}
+                  </CompletedTaskText>
+                  <UndoIconContainer>
+                    <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
+                  </UndoIconContainer>
+                </TaskContent>
+                <p>Completed on: {formatDate(task.completedAt)}</p>
+              </li>
+            ))}
+          </ul>
+        </ListContainer>
 
-      <BottomLeftButton onClick={handleGoToTaskContainer}>
-        Go to Task Container
-      </BottomLeftButton>
-      <LottieContainer>
-        <AchieveLottie width={300} height={300} />
-      </LottieContainer>
-    </CompletedTaskListWrapper>
+        <BottomLeftButton onClick={handleGoToTaskContainer}>
+          Go to Task Container
+        </BottomLeftButton>
+        <LottieContainer>
+          <AchieveLottie width={300} height={300} />
+        </LottieContainer>
+      </CompletedTaskListWrapper>
+    </CompletedTaskListContainer>
   );
 };
 
+const CompletedTaskListContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
 const CompletedTaskListWrapper = styled.div`
+  flex-grow: 1; /* Expand to fill the available space */
   display: flex;
   flex-direction: column;
   padding: 32px;
@@ -76,25 +87,8 @@ const CompletedTaskListWrapper = styled.div`
   overflow: hidden;
   max-width: 700px;
   width: 100%;
-  height: 100vh;
-
-  h2 {
-    font-size: 1.2rem;
-    margin-top: 38px;
-    color: ${colors.primary};
-  }
-
-  p {
-    font-size: 12px;
-    color: ${colors.text};
-  }
-
-  @media (max-width: 420px) {
-    h2,
-    p {
-      font-size: 85%;
-    }
-  }
+  height: 100%;
+  position: relative; /* Ensure relative positioning */
 `;
 
 const ListContainer = styled.div`
@@ -113,6 +107,7 @@ const ListContainer = styled.div`
 
   li {
     margin-bottom: 16px;
+    margin-right: 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

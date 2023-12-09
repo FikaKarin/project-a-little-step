@@ -111,6 +111,7 @@ const StyledFooter = styled.footer`
   position: static;
   bottom: 0; /* Stick to the bottom */
   width: 100%; /* Full width */
+  
 `;
 
 const Copyright = styled.div`
