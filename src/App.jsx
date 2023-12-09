@@ -54,15 +54,15 @@ export const App = () => {
   );
 };
 
-const GlobalStyles = createGlobalStyle<{ backgroundImage: string }>`
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: ${colors.background};
-    min-height: 100vh;
-    background: url(${(props) => props.backgroundImage}) center/cover; // Set background image
-  }
-`;
+// const GlobalStyles = createGlobalStyle<{ backgroundImage: string }>`
+//   body {
+//     margin: 0;
+//     padding: 0;
+//     background-color: ${colors.background};
+//     min-height: 100vh;
+//     background: url(${(props) => props.backgroundImage}) center/cover; // Set background image
+//   }
+// `;
 
 const AppContainer = styled.div`
   display: flex;
