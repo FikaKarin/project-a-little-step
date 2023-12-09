@@ -34,7 +34,7 @@ const WelcomeWrapper = styled.div`
   width: 500px;
   margin: 0 auto;
   padding: 20px;
-  position: relative; /* Change position to relative */
+  position: relative; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +43,7 @@ const WelcomeWrapper = styled.div`
   color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20vh; /* Adjust the margin as needed */
+  margin-top: 20vh; 
 `;
 
 const WelcomeTitle = styled.h1`

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { StartContainer } from '../components/StartContainer/StartContainer';
 import { colors } from '../components/theme';
@@ -24,7 +23,7 @@ const StyledHomeWrapper = styled.div`
   background-color: ${colors.background};
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
-  background: url(${backgroundImage}) center/cover; // Set background image
+  background: url(${backgroundImage}) center/cover;
   min-height: 100vh;  // Use min-height instead of height
   flex: 1; // Use flex: 1 to take up all available vertical space
 
@@ -33,7 +32,7 @@ const StyledHomeWrapper = styled.div`
   }
 
   @media (max-width: 620px) {
-    background: none; // Set background to none
+    background: none; 
     padding: 16px;
   }
 `;

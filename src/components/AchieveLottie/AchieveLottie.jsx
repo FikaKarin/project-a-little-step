@@ -1,4 +1,3 @@
-// AchieveLottie.jsx
 import React from 'react';
 import LottieReact from 'lottie-react';
 

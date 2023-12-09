@@ -1,4 +1,3 @@
-// CompletedTaskPopup.js
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FaCheckCircle } from 'react-icons/fa';

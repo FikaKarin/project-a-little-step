@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -48,7 +47,7 @@ export const App = () => {
             <Route path='/completed-tasks' element={<CompletedTasks />} />
           </Routes>
         </Router>
-        {showWelcome && <Footer />} {/* Render Footer only when Welcome is shown */}
+        <Footer />{' '}
       </AppContainer>
     </Provider>
   );
@@ -60,7 +59,8 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     background-color: ${colors.background};
     min-height: 100vh;
-    background: url(${props => props.backgroundImage}) center/cover; // Set background image
+    background: url(${(props) =>
+      props.backgroundImage}) center/cover; // Set background image
   }
 `;
 
@@ -68,6 +68,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+  justify-content: space-between; /* Align children with space in between */
 `;
 
 const Footer = () => {
@@ -107,7 +108,7 @@ const StyledFooter = styled.footer`
   color: white;
   padding: 20px;
   text-align: center;
-  position: absolute;
+  position: static;
   bottom: 0; /* Stick to the bottom */
   width: 100%; /* Full width */
 `;
