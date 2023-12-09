@@ -23,6 +23,7 @@ export const CompletedTaskPopup = ({ task, onComplete }) => {
     </PopupWrapper>
   ) : null;
 };
+
 const PopupWrapper = styled.div`
   position: fixed;
   top: 50%;
@@ -40,11 +41,15 @@ const PopupWrapper = styled.div`
   max-width: 350px;
   width: 70%; 
   max-height: 100%; 
+  word-wrap: break-word; /* Allows long words to be broken and wrap onto the next line */
+  white-space: pre-line; /* Handles newlines in the text */
+  overflow: hidden; /* Hides any text beyond the max height */
 
   @media (max-width: 600px) {
     width: 90%; 
   }
 `;
+
 
 const CheckIcon = styled(FaCheckCircle)`
   color: ${colors.primary};

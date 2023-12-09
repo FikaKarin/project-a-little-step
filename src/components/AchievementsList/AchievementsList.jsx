@@ -64,10 +64,14 @@ const StyledLottieWrapper = styled.div`
 
 const TaskInfo = styled.div`
   margin-top: 4px;
+  max-width: 200px; /* Adjust the value based on your design requirements */
+  
   h4 {
     font-size: 12px;
     color: green;
     margin: 4px 0;
+    word-wrap: break-word;
+    word-break: break-all; /* Add this line to break between any two characters */
   }
 
   p {
@@ -76,3 +80,4 @@ const TaskInfo = styled.div`
     margin-top: 4px;
   }
 `;
+
