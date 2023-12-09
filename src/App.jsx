@@ -41,6 +41,10 @@ export const App = () => {
                 element={<Welcome onTimeout={handleWelcomeTimeout} />}
               />
             )}
+            <Route
+              path='/welcome'
+              element={<Welcome onTimeout={handleWelcomeTimeout} />}
+            />
             <Route path='/home' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/task-container' element={<TaskContainer />} />
@@ -111,7 +115,6 @@ const StyledFooter = styled.footer`
   position: static;
   bottom: 0; /* Stick to the bottom */
   width: 100%; /* Full width */
-  
 `;
 
 const Copyright = styled.div`

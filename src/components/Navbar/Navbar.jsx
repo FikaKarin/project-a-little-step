@@ -1,31 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-  IoFootstepsOutline,
-  IoInformationCircleOutline,
-  IoListOutline,
-} from 'react-icons/io5';
+import { IoFootstepsOutline, IoInformationCircleOutline, IoListOutline } from 'react-icons/io5';
 import { GiTrophyCup } from 'react-icons/gi';
+import { NavLink as RouterNavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
     <StyledNavbar>
-      <Logo to='/'>
+      <Logo to='/welcome'>
         <p>
           <IoFootstepsOutline />A Little Step
         </p>
       </Logo>
       <NavLinks>
-        <NavLink to='/home' title='About'>
+        <StyledNavLink to='/home' title='About'>
           <IoInformationCircleOutline />
-        </NavLink>
-        <NavLink to='/task-container'>
+        </StyledNavLink>
+        <StyledNavLink to='/task-container'>
           <IoListOutline />
-        </NavLink>
-        <NavLink to='/completed-tasks'>
+        </StyledNavLink>
+        <StyledNavLink to='/completed-tasks'>
           <GiTrophyCup />
-        </NavLink>
+        </StyledNavLink>
       </NavLinks>
     </StyledNavbar>
   );
@@ -36,10 +33,10 @@ const StyledNavbar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff35;
-  padding: 10px 16px; 
-  width: 100%; /* Make the Navbar as wide as its container */
-  max-width: 700px; /* Set the maximum width for NavLinks */
-  margin: 0 auto; 
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
 `;
 
 const Logo = styled(Link)`
@@ -59,28 +56,52 @@ const Logo = styled(Link)`
 
   &:hover {
     text-decoration: underline;
+    svg {
+      text-decoration: underline;
+    }
   }
 `;
 
 const NavLinks = styled.div`
   display: flex;
-  align-items: center; 
+  align-items: center;
 `;
 
-const NavLink = styled(Link)`
+const StyledNavLink = styled(RouterNavLink)`
   color: white;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  padding: 8px; 
-  display: flex;
-  align-items: center;
+  padding: 8px;
+  position: relative;
 
   &:hover {
-    text-decoration: underline;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      display: block;
+    }
   }
 
   svg {
-    margin-right: 4px; 
+    margin-right: 4px;
+  }
+
+  &.active {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      display: block;
+    }
   }
 `;
