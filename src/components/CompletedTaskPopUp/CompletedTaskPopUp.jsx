@@ -12,7 +12,7 @@ export const CompletedTaskPopup = ({ task, onComplete }) => {
     const timeoutId = setTimeout(() => {
       setIsVisible(false);
       onComplete();
-    }, 6000);
+    }, 2500);
 
     return () => clearTimeout(timeoutId);
   }, [onComplete]);

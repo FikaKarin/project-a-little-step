@@ -64,7 +64,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 6px 10px;
+  padding: 2px 6px;
   color: black;
   border: none;
   border-radius: 4px;
@@ -74,7 +74,7 @@ const Button = styled.button`
 
   &:hover {
     background-color: #45a049a6;
-    padding: 8px 12px;
+    padding: 6px 10px;
     transition: ease-in 0.2s;
     color: white;
   }

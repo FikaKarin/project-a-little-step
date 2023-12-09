@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { completeTask, undoChosenTask } from '../../reducers/tasks';
@@ -18,7 +18,6 @@ export const ChosenTaskList = () => {
       onComplete: () => setCompletedTaskPopup(null),
     });
   };
-  
 
   const handleUndoChosenTask = (taskId) => {
     dispatch(undoChosenTask({ taskId }));
@@ -65,6 +64,9 @@ const ChosenTaskListWrapper = styled.div`
     list-style: none;
     padding: 0;
     margin: 0;
+    max-height: 300px; /* Set max-height */
+    overflow-y: auto; /* Enable vertical scroll */
+    min-height: 50px; /* Set a minimum height */
   }
 
   li {
@@ -87,6 +89,7 @@ const ChosenTaskListWrapper = styled.div`
       transform: translateY(20px);
     }
   }
+
   @media (max-width: 420px) {
     h2,
     p {
@@ -109,12 +112,12 @@ const ButtonWrapper = styled.div`
 const FaCheckCircleStyled = styled(FaCheckCircle)`
   color: green;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 6px; // Adjusted padding
+  padding: 6px; /* Adjusted padding */
   border-radius: 4px;
   cursor: pointer;
-  font-size: 33px; // Increased font size
-  margin-right: 8px; // Add some space between the icons
-  margin-bottom: 8px; // Add space between the icons and the bottom
+  font-size: 33px; /* Increased font size */
+  margin-right: 8px; /* Add some space between the icons */
+  margin-bottom: 8px; /* Add space between the icons and the bottom */
   transition: ease-in 0.3s;
   background-color: white;
 
@@ -126,12 +129,12 @@ const FaCheckCircleStyled = styled(FaCheckCircle)`
 const FaUndoStyled = styled(FaUndo)`
   color: black;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 8px; // Adjusted padding
+  padding: 8px; /* Adjusted padding */
   border-radius: 4px;
   cursor: pointer;
-  font-size: 33px; // Increased font size
-  margin-right: 8px; // Add some space between the icons
-  margin-bottom: 8px; // Add space between the icons and the bottom
+  font-size: 33px; /* Increased font size */
+  margin-right: 8px; /* Add some space between the icons */
+  margin-bottom: 8px; /* Add space between the icons and the bottom */
   transition: ease-in 0.3s;
   background-color: white;
 

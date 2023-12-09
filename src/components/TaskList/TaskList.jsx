@@ -9,7 +9,6 @@ import {
 
 import { TaskListHeader } from '../TaskListHeader/TaskListHeader';
 import { TaskListItem } from '../TaskListItem/TaskListItem';
-import { FaUndo } from 'react-icons/fa';
 
 export const TaskList = () => {
   const allTasks = useSelector((state) => state.tasks.allTasks);
@@ -102,6 +101,8 @@ const TaskListWrapper = styled.div`
   overflow-x: hidden; /* Hide horizontal scrollbar */  
   margin-top: 30px;
   margin-bottom: 30px;
+  max-width: 650px;
+  width: 100%;
 
   ul {
     list-style: none;
@@ -113,7 +114,6 @@ const TaskListWrapper = styled.div`
   li {
     width: 100%;
     box-sizing: border-box;
-    
 
     &:last-child {
       margin-bottom: 0;

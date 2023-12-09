@@ -24,13 +24,13 @@ const AboutWrapper = styled.div`
   margin-top: 16px;
 
   h2 {
-    color: black;
-    font-weight: 400;
+    color: ${colors.primary};
+    font-weight: 600;
   }
 
   p {
     color: ${colors.text};
-    font-weight: 600;
+    font-weight: 400;
   }
 
   @media (max-width: 400px) {

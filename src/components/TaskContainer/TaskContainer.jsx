@@ -7,6 +7,7 @@ import { TaskList } from '../../components/TaskList/TaskList';
 import { ChosenTaskList } from '../../components/ChosenTaskList/ChosenTaskList';
 import { TaskForm } from '../Taskform/TaskForm';
 import { colors } from '../theme';
+import { GoodLottie } from '../GoodLottie/GoodLottie';
 
 // Add this line to import Container
 const Container = styled.div`
@@ -51,6 +52,7 @@ export const TaskContainer = () => {
             Acheievements
           </BottomRightButton>
         </BottomButtonsWrapper>
+      <GoodLottie />
       </TaskContainerWrapper>
     </Container>
   );
@@ -61,7 +63,9 @@ const TaskContainerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding-left: 16px;
-  max-width: 600px;
+  max-width: 700px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
   background-color: white;
   padding: 20px;
@@ -71,6 +75,7 @@ const BottomButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+  margin-bottom: 16px;
   width: 100%; /* Take up the full width of the container */
   /* Position the buttons at the bottom */
   bottom: 0;

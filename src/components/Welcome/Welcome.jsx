@@ -1,4 +1,3 @@
-// Welcome.jsx
 import React, { useState, useEffect } from 'react';
 import { Lottie } from '../Lottie/Lottie';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +11,7 @@ export const Welcome = ({ onTimeout }) => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onTimeout(navigate); // Pass navigate function to onTimeout
-    }, 9000);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, [onTimeout, navigate]);
@@ -58,3 +57,4 @@ const WelcomeSubtitle = styled.p`
   margin: 15px 0;
   font-size: 1.25rem;
 `;
+

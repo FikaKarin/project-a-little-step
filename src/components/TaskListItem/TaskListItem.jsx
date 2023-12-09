@@ -34,12 +34,12 @@ export const TaskListItem = ({ task, handleToggleChosen }) => {
 const TaskListItemWrapper = styled.div`
   li {
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 10px 3px;
     border-bottom: 1px solid #0000005a;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in;
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
       background-color: #00800012;
     }
 
@@ -67,7 +67,7 @@ const TaskListItemWrapper = styled.div`
 
   @media (max-width: 420px) {
     li {
-      padding: 8px; /* Adjust padding for smaller screens */
+      padding: 8px; 
     }
   }
 `;
