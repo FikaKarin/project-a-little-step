@@ -1,7 +1,7 @@
 import React from 'react';
 import LottieReact from 'lottie-react';
 
-import animationData from '../../assets/complete.json';
+import animationData from '../../assets/dancing.json';
 
 export const CompleteLottie = ({ width, height }) => {
   return (

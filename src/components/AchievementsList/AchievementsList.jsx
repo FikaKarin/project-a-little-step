@@ -13,9 +13,20 @@ export const AchievementsList = ({ completedTasks }) => {
       setShouldRenderCompletedLottie(true);
     }
   }, [completedTasks]);
-
+  
   const handleTaskClick = (task) => {
     setSelectedTask(selectedTask === task ? null : task);
+  };
+  
+  const formatDate = (dateTimeString) => {
+    const options = {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+    return new Date(dateTimeString).toLocaleString(undefined, options);
   };
 
   return (
@@ -25,24 +36,13 @@ export const AchievementsList = ({ completedTasks }) => {
           <StyledLottieWrapper key={task.id} onClick={() => handleTaskClick(task)}>
             <StyledCompleteLottie width={60} height={60} />
             <TaskInfo>
-              <h4>{task.task.split(' ').slice(0, 3).join(' ')}{task.task.split(' ').length > 3 ? '...' : ''}</h4>
+              <h4>{task.task.split(' ').slice(0, 3).join(' ')}{task.task.split(' ').length > 4 ? '...' : ''}</h4>
               {selectedTask === task && <p>Completed on: {formatDate(task.completedAt)}</p>}
             </TaskInfo>
           </StyledLottieWrapper>
         ))}
     </LottieContainer>
   );
-};
-
-const formatDate = (dateTimeString) => {
-  const options = {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  };
-  return new Date(dateTimeString).toLocaleString(undefined, options);
 };
 
 const LottieContainer = styled.div`
@@ -60,6 +60,8 @@ const StyledLottieWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   cursor: pointer;
+  padding: 12px;
+  border-radius: 10px;
 `;
 
 const TaskInfo = styled.div`
@@ -68,16 +70,19 @@ const TaskInfo = styled.div`
   
   h4 {
     font-size: 12px;
-    color: green;
+    color:black;
     margin: 4px 0;
     word-wrap: break-word;
     word-break: break-all; /* Add this line to break between any two characters */
+  font-weight: 400;
+
   }
 
   p {
     font-size: 10px;
     color: ${colors.text};
     margin-top: 4px;
+    font-style: italic;
   }
 `;
 

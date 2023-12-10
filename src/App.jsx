@@ -64,7 +64,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${colors.background};
     min-height: 100vh;
     background: url(${(props) =>
-      props.backgroundImage}) center/cover; // Set background image
+      props.backgroundImage}) center/cover;
   }
 `;
 
@@ -72,7 +72,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
-  justify-content: space-between; /* Align children with space in between */
+  justify-content: space-between; 
 `;
 
 const Footer = () => {

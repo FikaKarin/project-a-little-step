@@ -6,10 +6,6 @@ import styled from 'styled-components';
 import { colors } from '../theme';
 
 export const StartContainer = () => {
-  // Assuming you have access to completedTasks in your Redux store
-  const completedTasks = useSelector(
-    (state) => state.tasks.completedTasks || []
-  );
 
   return (
     <TopWrapper>

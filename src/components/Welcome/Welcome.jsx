@@ -11,7 +11,7 @@ export const Welcome = ({ onTimeout }) => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       onTimeout(navigate); 
-    }, 5000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [onTimeout, navigate]);
