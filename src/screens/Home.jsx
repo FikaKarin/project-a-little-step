@@ -20,7 +20,7 @@ const StyledHomeWrapper = styled.div`
   margin: 0 auto;
   max-width: 700px;
   padding: 36px;
-  background-color: ${colors.background};
+  background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
   background: url(${backgroundImage}) center/cover;
