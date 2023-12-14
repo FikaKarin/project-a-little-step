@@ -17,7 +17,7 @@ export const Footer = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaFacebook />
+          <FaFacebook size={20} />
           <span>Facebook</span>
         </StyledLink>
         <StyledLink
@@ -25,7 +25,7 @@ export const Footer = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaTwitter />
+          <FaTwitter size={20} />
           <span>Twitter</span>
         </StyledLink>
         <StyledLink
@@ -33,7 +33,7 @@ export const Footer = () => {
           target='_blank'
           rel='noopener noreferrer'
         >
-          <FaLinkedin />
+          <FaLinkedin size={20} />
           <span>LinkedIn</span>
         </StyledLink>
       </SocialMediaLinks>
@@ -42,13 +42,12 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
-  /* background-color: #305530a6; */
   color: white;
   padding: 20px;
   text-align: center;
   position: static;
-  bottom: 0; /* Stick to the bottom */
-  width: 100%; /* Full width */
+  bottom: 0;
+  width: 100%;
 `;
 
 const Copyright = styled.div`
@@ -61,7 +60,10 @@ const ContactInfo = styled.div`
 `;
 
 const SocialMediaLinks = styled.div`
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
 `;
 
 const StyledLink = styled.a`
