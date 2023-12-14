@@ -167,7 +167,7 @@ export const stepsSlice = createSlice({
       }
     },    
 
-    // Start a new day by resetting chosenToday array and unchecking all chosen steps
+    // Start a new day by resetting chosenToday array and unchecking all chosen tasks
     startNewDay: (state) => {
       console.log('Starting a new day!'); // Log when starting a new day
       state.chosenToday = [];
