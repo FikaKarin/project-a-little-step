@@ -40,7 +40,7 @@ const StyledNavbar = styled.nav`
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  background-color: #252925b5;
+  background-color: #252925;
 `;
 
 const Logo = styled(Link)`
