@@ -41,8 +41,8 @@ const WelcomeWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #016db5;
-  color: white;
+  background-color: white;
+  color: #016db5;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20vh; 
