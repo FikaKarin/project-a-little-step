@@ -60,5 +60,6 @@ const WelcomeTitle = styled.h1`
 const WelcomeSubtitle = styled.p`
   margin: 15px 0;
   font-size: 1.25rem;
+  font-weight: 600;
 `;
 
