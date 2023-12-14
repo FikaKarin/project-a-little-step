@@ -1,58 +1,58 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { completeTask, undoChosenTask } from '../../reducers/tasks';
+import { completeStep, undoChosenStep } from '../../reducers/steps';
 import { FaCheckCircle, FaUndo } from 'react-icons/fa';
-import { CompletedTaskPopup } from '../CompletedTaskPopUp/CompletedTaskPopUp';
+import { CompletedStepPopup } from '../CompletedStepPopUp/CompletedStepPopUp';
 
-export const ChosenTaskList = () => {
+export const ChosenStepList = () => {
   const dispatch = useDispatch();
-  const chosenTasks = useSelector((state) => state.tasks.chosenTasks || []);
-  const [completedTaskPopup, setCompletedTaskPopup] = React.useState(null);
+  const chosenSteps = useSelector((state) => state.steps.chosenSteps || []);
+  const [completedStepPopup, setCompletedStepPopup] = React.useState(null);
 
-  const handleCompleteTask = (taskId, taskName) => {
-    dispatch(completeTask({ taskId }));
-    setCompletedTaskPopup({
-      key: taskId,
-      task: taskName,
-      onComplete: () => setCompletedTaskPopup(null),
+  const handleCompleteStep = (stepId, stepName) => {
+    dispatch(completeStep({ stepId }));
+    setCompletedStepPopup({
+      key: stepId,
+      step: stepName,
+      onComplete: () => setCompletedStepPopup(null),
     });
   };
 
-  const handleUndoChosenTask = (taskId) => {
-    dispatch(undoChosenTask({ taskId }));
+  const handleUndoChosenStep = (stepId) => {
+    dispatch(undoChosenStep({ stepId }));
   };
 
   return (
-    <ChosenTaskListWrapper>
-      <h2>Chosen ({chosenTasks.length})</h2>
-      {completedTaskPopup && <CompletedTaskPopup {...completedTaskPopup} />}
-      {chosenTasks.length > 0 ? (
+    <ChosenStepListWrapper>
+      <h2>Chosen ({chosenSteps.length})</h2>
+      {completedStepPopup && <CompletedStepPopup {...completedStepPopup} />}
+      {chosenSteps.length > 0 ? (
         <ul>
-          {chosenTasks.map((task) => (
-            <li key={task.id}>
-              <ChosenTaskText>{task.task}</ChosenTaskText>
+          {chosenSteps.map((step) => (
+            <li key={step.id}>
+              <ChosenStepText>{step.step}</ChosenStepText>
               <ButtonWrapper>
                 <FaCheckCircleStyled
-                  onClick={() => handleCompleteTask(task.id, task.task)}
+                  onClick={() => handleCompleteStep(step.id, step.step)}
                 />
-                <FaUndoStyled onClick={() => handleUndoChosenTask(task.id)} />
+                <FaUndoStyled onClick={() => handleUndoChosenStep(step.id)} />
               </ButtonWrapper>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No chosen tasks yet.</p>
+        <p>No chosen steps yet.</p>
       )}
-    </ChosenTaskListWrapper>
+    </ChosenStepListWrapper>
   );
 };
 
-const ChosenTaskListWrapper = styled.div`
+const ChosenStepListWrapper = styled.div`
   margin-bottom: 20px;
   width: 100%;
   padding: 0 6px;
-  background-color: #ffff0015;
+  /* background-color: #ffff0015; */
 
   h2 {
     font-size: 1.4rem;
@@ -98,7 +98,7 @@ const ChosenTaskListWrapper = styled.div`
   }
 `;
 
-const ChosenTaskText = styled.span`
+const ChosenStepText = styled.span`
   margin-bottom: 8px;
   font-size: 13px;
 `;

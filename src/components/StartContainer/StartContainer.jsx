@@ -11,14 +11,13 @@ export const StartContainer = () => {
     <TopWrapper>
       <About />
       <LinkContainer>
-        <StyledLink to='/task-container'>Get Started</StyledLink>
+        <StyledLink to='/step-container'>Get Started</StyledLink>
       </LinkContainer>
     </TopWrapper>
   );
 };
 
 const TopWrapper = styled.div`
-  background-color: ${colors.background};
   padding: 12px;
   border-radius: 4px;
   box-shadow: -2px 1px 4px rgba(0, 0, 0, 0.1);

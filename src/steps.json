@@ -1,61 +1,61 @@
 [
   {
     "id": 1,
-    "task": "Don't buy take away coffee today",
+    "step": "Don't buy take away coffee today",
     "category": "Reduce Waste",
     "completed": false
   },
   {
     "id": 2,
-    "task": "Put the lights out in the rooms you aren't in",
+    "step": "Put the lights out in the rooms you aren't in",
     "category": "Save Energy",
     "completed": false
   },
   {
     "id": 3,
-    "task": "Use a reusable water bottle instead of single-use plastic",
+    "step": "Use a reusable water bottle instead of single-use plastic",
     "category": "Reduce Plastic",
     "completed": false
   },
   {
     "id": 4,
-    "task": "Turn off electronic devices when not in use",
+    "step": "Turn off electronic devices when not in use",
     "category": "Save Energy",
     "completed": false
   },
   {
     "id": 5,
-    "task": "Plant a tree or participate in a tree-planting event",
+    "step": "Plant a tree or participate in a tree-planting event",
     "category": "Support Nature",
     "completed": false
   },
   {
     "id": 6,
-    "task": "Reduce meat consumption for the day",
+    "step": "Reduce meat consumption for the day",
     "category": "Sustainable Diet",
     "completed": false
   },
   {
     "id": 7,
-    "task": "Use public transportation or carpool instead of driving alone",
+    "step": "Use public transportation or carpool instead of driving alone",
     "category": "Reduce Carbon Footprint",
     "completed": false
   },
   {
     "id": 8,
-    "task": "Recycle paper, plastic, and glass materials",
+    "step": "Recycle paper, plastic, and glass materials",
     "category": "Recycling",
     "completed": false
   },
   {
     "id": 9,
-    "task": "Take shorter showers to conserve water",
+    "step": "Take shorter showers to conserve water",
     "category": "Water Conservation",
     "completed": false
   },
   {
     "id": 10,
-    "task": "Participate in a local cleanup event to reduce litter",
+    "step": "Participate in a local cleanup event to reduce litter",
     "category": "Community Cleanup",
     "completed": false
   }

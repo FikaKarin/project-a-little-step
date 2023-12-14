@@ -4,19 +4,20 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Welcome } from './components/Welcome/Welcome';
 import { Home } from './screens/Home';
 import { About } from './components/About/About';
-import { TaskContainer } from './components/TaskContainer/TaskContainer';
-import { CompletedTasks } from './components/CompletedTasks/CompletedTasks';
+import { StepContainer } from './components/StepContainer/StepContainer';
+import { CompletedSteps } from './components/CompletedSteps/CompletedSteps';
 import { Navbar } from './components/Navbar/Navbar';
+import { Footer } from './components/Footer/Footer';
 import styled, { createGlobalStyle } from 'styled-components';
 import { colors } from './components/theme';
 import backgroundImage from './assets/backHome.jpg';
 
 import { configureStore } from '@reduxjs/toolkit';
-import tasksReducer from './reducers/tasks';
+import stepsReducer from './reducers/steps';
 
 const store = configureStore({
   reducer: {
-    tasks: tasksReducer,
+    steps: stepsReducer,
   },
 });
 
@@ -34,24 +35,26 @@ export const App = () => {
       <AppContainer>
         <Router>
           <Navbar />
-          <Routes>
-            {showWelcome && (
+          <main>
+            <Routes>
+              {showWelcome && (
+                <Route
+                  path='/'
+                  element={<Welcome onTimeout={handleWelcomeTimeout} />}
+                />
+              )}
               <Route
-                path='/'
+                path='/welcome'
                 element={<Welcome onTimeout={handleWelcomeTimeout} />}
               />
-            )}
-            <Route
-              path='/welcome'
-              element={<Welcome onTimeout={handleWelcomeTimeout} />}
-            />
-            <Route path='/home' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/task-container' element={<TaskContainer />} />
-            <Route path='/completed-tasks' element={<CompletedTasks />} />
-          </Routes>
+              <Route path='/home' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/step-container' element={<StepContainer />} />
+              <Route path='/completed-steps' element={<CompletedSteps />} />
+            </Routes>
+          </main>
+          <Footer />
         </Router>
-        <Footer />{' '}
       </AppContainer>
     </Provider>
   );
@@ -61,81 +64,18 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color: ${colors.background};
-    min-height: 100vh;
-    background: url(${(props) =>
-      props.backgroundImage}) center/cover;
+    height: 100vh; 
+    background: url(${(props) => props.backgroundImage}) center;
+    background-size: auto auto; 
+    background-repeat: repeat; 
   }
 `;
+
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+  min-height: 100vh; 
   justify-content: space-between; 
 `;
 
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <Copyright>&copy; 2023 A Little Step. All rights reserved.</Copyright>
-      <ContactInfo>
-        <div>123 Main Street, City</div>
-        <div>Email: info@example.com</div>
-        <div>Phone: (123) 456-7890</div>
-      </ContactInfo>
-      <SocialMediaLinks>
-        <a
-          href='https://facebook.com'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <i className='fab fa-facebook'></i>
-        </a>
-        <a href='https://twitter.com' target='_blank' rel='noopener noreferrer'>
-          <i className='fab fa-twitter'></i>
-        </a>
-        <a
-          href='https://linkedin.com'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <i className='fab fa-linkedin'></i>
-        </a>
-      </SocialMediaLinks>
-    </StyledFooter>
-  );
-};
-
-const StyledFooter = styled.footer`
-  background-color: #304b3037;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: static;
-  bottom: 0; /* Stick to the bottom */
-  width: 100%; /* Full width */
-`;
-
-const Copyright = styled.div`
-  font-size: 12px;
-  margin-bottom: 10px;
-`;
-
-const ContactInfo = styled.div`
-  font-size: 10px;
-`;
-
-const SocialMediaLinks = styled.div`
-  font-size: 20px;
-
-  a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-
-    &:hover {
-      color: #ccc;
-    }
-  }
-`;

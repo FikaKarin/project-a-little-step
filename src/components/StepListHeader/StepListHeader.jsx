@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const TaskListHeader = ({ title, count }) => (
-  <TaskListHeaderWrapper>
+export const StepListHeader = ({ title, count }) => (
+  <StepListHeaderWrapper>
     <h2>{title} ({count}) </h2>
-  </TaskListHeaderWrapper>
+  </StepListHeaderWrapper>
 );
 
-const TaskListHeaderWrapper = styled.div`
+const StepListHeaderWrapper = styled.div`
   h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;

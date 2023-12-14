@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import styled from 'styled-components';
-import tasksReducer from '../../reducers/tasks';
-import { TaskList } from '../../components/TaskList/TaskList';
-import { ChosenTaskList } from '../../components/ChosenTaskList/ChosenTaskList';
-import { TaskForm } from '../Taskform/TaskForm';
+import stepsReducer from '../../reducers/steps';
+import { StepList } from '../StepList/StepList';
+import { ChosenStepList } from '../ChosenStepList/ChosenStepList';
+import { StepForm } from '../Stepform/StepForm';
 import { colors } from '../theme';
 import { GoodLottie } from '../GoodLottie/GoodLottie';
 
@@ -16,7 +16,7 @@ const Container = styled.div`
 
 // Combine reducers
 const reducer = combineReducers({
-  tasks: tasksReducer,
+  steps: stepsReducer,
 });
 
 // Configure Redux store
@@ -24,38 +24,38 @@ const store = configureStore({
   reducer,
 });
 
-export const TaskContainer = () => {
+export const StepContainer = () => {
   const navigate = useNavigate();
 
   const handleGoHome = () => {
     navigate('/home');
   };
 
-  const handleGoToCompletedTasks = () => {
-    navigate('/completed-tasks');
+  const handleGoToCompletedSteps = () => {
+    navigate('/completed-steps');
   };
 
   return (
     <Container>
-      <TaskContainerWrapper>
-        <TaskForm />
-        <TaskList style={{ marginBottom: '24px' }} />
-        <ChosenTaskList style={{ marginBottom: '24px' }} />
+      <StepContainerWrapper>
+        <StepForm />
+        <StepList style={{ marginBottom: '24px' }} />
+        <ChosenStepList style={{ marginBottom: '24px' }} />
 
         <BottomButtonsWrapper>
           <BottomLeftButton onClick={handleGoHome}>Go Home</BottomLeftButton>
 
-          <BottomRightButton onClick={handleGoToCompletedTasks}>
-            Acheievements
+          <BottomRightButton onClick={handleGoToCompletedSteps}>
+            Achievements
           </BottomRightButton>
         </BottomButtonsWrapper>
       <GoodLottie />
-      </TaskContainerWrapper>
+      </StepContainerWrapper>
     </Container>
   );
 };
 
-const TaskContainerWrapper = styled.div`
+const StepContainerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,12 +81,13 @@ const BottomButtonsWrapper = styled.div`
 `;
 
 const BottomLeftButton = styled.button`
-  background-color: ${colors.primary};
+  background-color: blue;
   color: white;
   padding: 8px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
 
   @media (max-width: 420px) {
     font-size: 14px; /* Adjust font size for smaller screens */
@@ -95,7 +96,7 @@ const BottomLeftButton = styled.button`
 `;
 
 const BottomRightButton = styled.button`
-  background-color: #45a049a6;
+  background-color: green;
   color: white;
   padding: 8px;
   border: none;

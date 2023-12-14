@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { FaPlus } from 'react-icons/fa';
-import { addTask } from '../../reducers/tasks';
-import styled, { keyframes } from 'styled-components';
+import { addStep } from '../../reducers/steps';
+import styled from 'styled-components';
 
-export const TaskForm = () => {
+export const StepForm = () => {
   const dispatch = useDispatch();
-  const [newTask, setNewTask] = useState('');
+  const [newStep, setNewStep] = useState('');
 
-  const handleAddTask = () => {
-    if (newTask.trim() !== '') {
-      dispatch(addTask({ id: Date.now(), task: newTask, completed: false }));
-      setNewTask('');
+  const handleAddStep = () => {
+    if (newStep.trim() !== '') {
+      dispatch(addStep({ id: Date.now(), step: newStep, completed: false }));
+      setNewStep('');
     }
   };
 
   return (
-    <TaskFormWrapper>
+    <StepFormWrapper>
       <h2>Add Step</h2>
       <input
         type='text'
-        id='newTaskInput'
-        name='newTask'
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-        placeholder='Enter task'
+        id='newStepInput'
+        name='newStep'
+        value={newStep}
+        onChange={(e) => setNewStep(e.target.value)}
+        placeholder='Enter step'
       />
       <ButtonContainer>
-        <Button onClick={handleAddTask}>
-          <StyledPlus />
+        <Button onClick={handleAddStep}>
+          <StyledPlus /> Add
         </Button>
       </ButtonContainer>
-    </TaskFormWrapper>
+    </StepFormWrapper>
   );
 };
 
-const TaskFormWrapper = styled.div`
+const StepFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #00800012;
+  /* background-color: #00800012; */
   padding: 10px 8px;
   width: 100%;
 
@@ -64,6 +64,8 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.button`
+  display: flex;
+  align-items: center; /* Align items vertically */
   padding: 2px 6px;
   color: black;
   border: none;
@@ -79,6 +81,7 @@ const Button = styled.button`
     color: white;
   }
 `;
+
 
 const StyledPlus = styled(FaPlus)`
   font-size: 20px;

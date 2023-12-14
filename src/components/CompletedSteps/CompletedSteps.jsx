@@ -4,23 +4,23 @@ import styled from 'styled-components';
 import { FaUndo } from 'react-icons/fa';
 import { AchievementsList } from '../AchievementsList/AchievementsList';
 import { colors } from '../theme';
-import { undoCompleteTask } from '../../reducers/tasks';
+import { undoCompleteStep } from '../../reducers/steps';
 import { useNavigate } from 'react-router-dom';
 import { AchieveLottie } from '../AchieveLottie/AchieveLottie';
 
-export const CompletedTasks = () => {
-  const completedTasks = useSelector(
-    (state) => state.tasks.completedTasks || []
+export const CompletedSteps = () => {
+  const completedSteps = useSelector(
+    (state) => state.steps.completedSteps || []
   );
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleUndoCompleteTask = (taskId) => {
-    dispatch(undoCompleteTask({ taskId }));
+  const handleUndoCompleteStep = (stepId) => {
+    dispatch(undoCompleteStep({ stepId }));
   };
 
-  const handleGoToTaskContainer = () => {
-    navigate('/task-container');
+  const handleGoToStepContainer = () => {
+    navigate('/step-container');
   };
 
   const formatDate = (dateTimeString) => {
@@ -35,48 +35,48 @@ export const CompletedTasks = () => {
   };
 
   return (
-    <CompletedTaskListContainer>
-      <CompletedTaskListWrapper>
-        <h2>Achievements ({completedTasks.length})</h2>
-        <AchievementsList completedTasks={completedTasks} />
+    <CompletedStepListContainer>
+      <CompletedStepListWrapper>
+        <h2>Achievements ({completedSteps.length})</h2>
+        <AchievementsList completedSteps={completedSteps} />
         <h2>Completed</h2>
         <ListContainer>
           <ul>
-            {completedTasks.map((task) => (
-              <li key={task.id}>
-                <TaskContent>
-                  <CompletedTaskText>{task.task}</CompletedTaskText>
+            {completedSteps.map((step) => (
+              <li key={step.id}>
+                <StepContent>
+                  <CompletedStepText>{step.step}</CompletedStepText>
                   <UndoIconContainer>
-                    <UndoIcon onClick={() => handleUndoCompleteTask(task.id)} />
+                    <UndoIcon onClick={() => handleUndoCompleteStep(step.id)} />
                   </UndoIconContainer>
-                </TaskContent>
+                </StepContent>
                 <ResponsiveParagraph>
-                  Completed on: {formatDate(task.completedAt)}
+                  Completed on: {formatDate(step.completedAt)}
                 </ResponsiveParagraph>
               </li>
             ))}
           </ul>
         </ListContainer>
 
-        <BottomLeftButton onClick={handleGoToTaskContainer}>
-          Go to Task Container
+        <BottomLeftButton onClick={handleGoToStepContainer}>
+          Go to Step Container
         </BottomLeftButton>
         <LottieContainer>
           <AchieveLottie width={300} height={300} />
         </LottieContainer>
-      </CompletedTaskListWrapper>
-    </CompletedTaskListContainer>
+      </CompletedStepListWrapper>
+    </CompletedStepListContainer>
   );
 };
 
-const CompletedTaskListContainer = styled.div`
+const CompletedStepListContainer = styled.div`
   height: 100vh;
   display: flex;
   flex: 1;
   flex-direction: column;
 `;
 
-const CompletedTaskListWrapper = styled.div`
+const CompletedStepListWrapper = styled.div`
   flex-grow: 1; /* Expand to fill the available space */
   display: flex;
   flex-direction: column;
@@ -125,14 +125,14 @@ const ListContainer = styled.div`
   }
 `;
 
-const TaskContent = styled.div`
+const StepContent = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
 `;
 
-const CompletedTaskText = styled.span`
+const CompletedStepText = styled.span`
   margin-bottom: 8px;
   text-decoration: line-through;
   color: #888;
@@ -154,7 +154,7 @@ const ResponsiveParagraph = styled.p`
 const BottomLeftButton = styled.button`
   bottom: 8px;
   left: 8px;
-  background-color: ${colors.primary};
+  background-color: green;
   color: ${colors.background};
   padding: 8px;
   border: none;

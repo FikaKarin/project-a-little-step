@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FaCheckCircle } from 'react-icons/fa';
 import { colors } from '../theme';
 
-export const CompletedTaskPopup = ({ task, onComplete }) => {
+export const CompletedStepPopup = ({ step, onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const CompletedTaskPopup = ({ task, onComplete }) => {
     <PopupWrapper>
       <CheckIcon />
       <PopupContent>
-        <p>{task}</p>
+        <p>{step}</p>
       </PopupContent>
     </PopupWrapper>
   ) : null;

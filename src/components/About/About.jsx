@@ -11,9 +11,9 @@ export const About = () => {
           A Little Step helps you get reminded of the little things we all can
           do every day that get us started on the path of making better choices
           for the environment.<br></br>
-          In our list you can choose tasks for the day and check them off when you've
+          In our list you can choose steps for the day and check them off when you've
           completed them.<br></br>
-          You can also add tasks of your own choice to the list.
+          You can also add steps of your own choice to the list.
         </p>
       </PWrapper>
     </AboutWrapper>

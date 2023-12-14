@@ -10,18 +10,22 @@ export const Navbar = () => {
     <StyledNavbar>
       <Logo to='/welcome'>
         <p>
-          <IoFootstepsOutline />A Little Step
+          <IoFootstepsOutline aria-hidden='true' />
+          A Little Step
         </p>
       </Logo>
       <NavLinks>
-        <StyledNavLink to='/home' title='About'>
-          <IoInformationCircleOutline />
+        <StyledNavLink to='/home' aria-label='About'>
+          <IoInformationCircleOutline aria-hidden='true' />
+          <span className="link-text">About</span>
         </StyledNavLink>
-        <StyledNavLink to='/task-container'>
-          <IoListOutline />
+        <StyledNavLink to='/step-container' aria-label='Step Container'>
+          <IoListOutline aria-hidden='true' />
+          <span className="link-text">Step Container</span>
         </StyledNavLink>
-        <StyledNavLink to='/completed-tasks'>
-          <GiTrophyCup />
+        <StyledNavLink to='/completed-steps' aria-label='Completed Steps'>
+          <GiTrophyCup aria-hidden='true' />
+          <span className="link-text">Completed Steps</span>
         </StyledNavLink>
       </NavLinks>
     </StyledNavbar>
@@ -32,7 +36,6 @@ const StyledNavbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff35;
   padding: 10px 16px;
   width: 100%;
   max-width: 700px;
@@ -50,7 +53,7 @@ const Logo = styled(Link)`
   }
 
   p {
-    font-weight: 200;
+    font-weight: 400;
     margin: 0;
   }
 
@@ -71,7 +74,7 @@ const StyledNavLink = styled(RouterNavLink)`
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   padding: 8px;
   position: relative;
 
@@ -103,5 +106,16 @@ const StyledNavLink = styled(RouterNavLink)`
       background-color: white;
       display: block;
     }
+  }
+
+  .link-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
 `;

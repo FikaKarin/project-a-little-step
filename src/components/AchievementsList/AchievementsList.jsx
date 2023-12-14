@@ -3,19 +3,19 @@ import { CompleteLottie } from '../CompleteLottie/CompleteLottie';
 import styled from 'styled-components';
 import { colors } from '../theme';
 
-export const AchievementsList = ({ completedTasks }) => {
+export const AchievementsList = ({ completedSteps }) => {
   const [shouldRenderCompletedLottie, setShouldRenderCompletedLottie] =
     useState(false);
-  const [selectedTask, setSelectedTask] = useState(null);
+  const [selectedStep, setSelectedStep] = useState(null);
 
   useEffect(() => {
-    if (completedTasks.length > 0) {
+    if (completedSteps.length > 0) {
       setShouldRenderCompletedLottie(true);
     }
-  }, [completedTasks]);
+  }, [completedSteps]);
   
-  const handleTaskClick = (task) => {
-    setSelectedTask(selectedTask === task ? null : task);
+  const handleStepClick = (step) => {
+    setSelectedStep(selectedStep === step ? null : step);
   };
   
   const formatDate = (dateTimeString) => {
@@ -32,13 +32,13 @@ export const AchievementsList = ({ completedTasks }) => {
   return (
     <LottieContainer>
       {shouldRenderCompletedLottie &&
-        completedTasks.map((task) => (
-          <StyledLottieWrapper key={task.id} onClick={() => handleTaskClick(task)}>
+        completedSteps.map((step) => (
+          <StyledLottieWrapper key={step.id} onClick={() => handleStepClick(step)}>
             <StyledCompleteLottie width={60} height={60} />
-            <TaskInfo>
-              <h4>{task.task.split(' ').slice(0, 3).join(' ')}{task.task.split(' ').length > 4 ? '...' : ''}</h4>
-              {selectedTask === task && <p>Completed on: {formatDate(task.completedAt)}</p>}
-            </TaskInfo>
+            <StepInfo>
+              <h4>{step.step.split(' ').slice(0, 3).join(' ')}{step.step.split(' ').length > 4 ? '...' : ''}</h4>
+              {selectedStep === step && <p>Completed on: {formatDate(step.completedAt)}</p>}
+            </StepInfo>
           </StyledLottieWrapper>
         ))}
     </LottieContainer>
@@ -64,7 +64,7 @@ const StyledLottieWrapper = styled.div`
   border-radius: 10px;
 `;
 
-const TaskInfo = styled.div`
+const StepInfo = styled.div`
   margin-top: 4px;
   max-width: 200px; /* Adjust the value based on your design requirements */
   

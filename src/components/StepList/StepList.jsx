@@ -2,37 +2,37 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import {
-  toggleTaskChosen,
-  undoRemoveTask,
+  toggleStepChosen,
+  undoRemoveStep,
   startNewDay,
-} from '../../reducers/tasks';
+} from '../../reducers/steps';
 
-import { TaskListHeader } from '../TaskListHeader/TaskListHeader';
-import { TaskListItem } from '../TaskListItem/TaskListItem';
+import { StepListHeader } from '../StepListHeader/StepListHeader';
+import { StepListItem } from '../StepListItem/StepListItem';
 
-export const TaskList = () => {
-  const allTasks = useSelector((state) => state.tasks.allTasks);
-  const chosenToday = useSelector((state) => state.tasks.chosenTasks);
+export const StepList = () => {
+  const allSteps = useSelector((state) => state.steps.allSteps);
+  const chosenToday = useSelector((state) => state.steps.chosenSteps);
   const dispatch = useDispatch();
-  const [newTask, setNewTask] = useState({ text: '', dueDate: null });
+  const [newStep, setNewStep] = useState({ text: '', dueDate: null });
   const [showChosen, setShowChosen] = useState(false);
   const [showUnchosen, setShowUnchosen] = useState(true);
   const [showAll, setShowAll] = useState(true);
   const [createdAfterDate, setCreatedAfterDate] = useState(null);
 
   useEffect(() => {
-    const savedState = localStorage.getItem('chosenTasks');
+    const savedState = localStorage.getItem('chosenSteps');
     if (savedState) {
       dispatch({
-        type: 'LOAD_CHOSEN_TASKS',
+        type: 'LOAD_CHOSEN_STEPS',
         payload: JSON.parse(savedState),
       });
     }
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem('chosenTasks', JSON.stringify(allTasks));
-  }, [allTasks]);
+    localStorage.setItem('chosenSteps', JSON.stringify(allSteps));
+  }, [allSteps]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -46,55 +46,55 @@ export const TaskList = () => {
     return () => clearInterval(intervalId);
   }, [dispatch]);
 
-  const handleToggleChosen = (taskId) => {
-    dispatch(toggleTaskChosen(taskId));
+  const handleToggleChosen = (stepId) => {
+    dispatch(toggleStepChosen(stepId));
   };
   
 
-  const handleUndoRemoveTask = () => {
-    dispatch(undoRemoveTask());
+  const handleUndoRemoveStep = () => {
+    dispatch(undoRemoveStep());
   };
 
   return (
-    <TaskListWrapper>
-      <TaskListHeader
+    <StepListWrapper>
+      <StepListHeader
         title='Steps'
-        count={allTasks.length}
+        count={allSteps.length}
         chosenToday={chosenToday}
       />
       <ul>
-        {allTasks
+        {allSteps
           .slice()
           .reverse()
           .filter(
-            (task) =>
+            (step) =>
               (showAll ||
-                (!showChosen && !task.chosen) ||
-                (showChosen && task.chosen)) &&
+                (!showChosen && !step.chosen) ||
+                (showChosen && step.chosen)) &&
               (showAll ||
-                (!showUnchosen && task.chosen) ||
-                (showUnchosen && !task.chosen))
+                (!showUnchosen && step.chosen) ||
+                (showUnchosen && !step.chosen))
           )
           .filter(
-            (task) =>
-              !createdAfterDate || new Date(task.createdAt) > createdAfterDate
+            (step) =>
+              !createdAfterDate || new Date(step.createdAt) > createdAfterDate
           )
-          .map((task) => {
+          .map((step) => {
             return (
-              <TaskListItem
-                key={`${task.id}-${task.task}`}
-                task={task}
+              <StepListItem
+                key={`${step.id}-${step.step}`}
+                step={step}
                 handleToggleChosen={handleToggleChosen}
-                handleUndoRemoveTask={handleUndoRemoveTask}
+                handleUndoRemoveStep={handleUndoRemoveStep}
               />
             );
           })}
       </ul>
-    </TaskListWrapper>
+    </StepListWrapper>
   );
 };
 
-const TaskListWrapper = styled.div`
+const StepListWrapper = styled.div`
   flex: 1;
   max-height: 400px; /* Set maximum height */
   overflow-y: auto; /* Add vertical scrollbar if needed */
