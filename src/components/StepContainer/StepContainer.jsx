@@ -6,7 +6,6 @@ import stepsReducer from '../../reducers/steps';
 import { StepList } from '../StepList/StepList';
 import { ChosenStepList } from '../ChosenStepList/ChosenStepList';
 import { StepForm } from '../Stepform/StepForm';
-import { colors } from '../theme';
 import { GoodLottie } from '../GoodLottie/GoodLottie';
 
 const Container = styled.div`
@@ -81,7 +80,7 @@ const BottomButtonsWrapper = styled.div`
 `;
 
 const BottomLeftButton = styled.button`
-  background-color: blue;
+  background-color: #1045bf;
   color: white;
   padding: 8px;
   border: none;

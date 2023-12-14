@@ -5,8 +5,8 @@ import { FaUndo } from 'react-icons/fa';
 import { AchievementsList } from '../AchievementsList/AchievementsList';
 import { colors } from '../theme';
 import { undoCompleteStep } from '../../reducers/steps';
-import { useNavigate } from 'react-router-dom';
 import { AchieveLottie } from '../AchieveLottie/AchieveLottie';
+import { useNavigate } from 'react-router-dom';
 
 export const CompletedSteps = () => {
   const completedSteps = useSelector(
@@ -47,7 +47,11 @@ export const CompletedSteps = () => {
                 <StepContent>
                   <CompletedStepText>{step.step}</CompletedStepText>
                   <UndoIconContainer>
-                    <UndoIcon onClick={() => handleUndoCompleteStep(step.id)} />
+                    <React.Suspense fallback={<div>Loading...</div>}>
+                      <UndoIcon
+                        onClick={() => handleUndoCompleteStep(step.id)}
+                      />
+                    </React.Suspense>
                   </UndoIconContainer>
                 </StepContent>
                 <ResponsiveParagraph>
@@ -59,10 +63,12 @@ export const CompletedSteps = () => {
         </ListContainer>
 
         <BottomLeftButton onClick={handleGoToStepContainer}>
-          Go to Step Container
+          Go Back
         </BottomLeftButton>
         <LottieContainer>
-          <AchieveLottie width={300} height={300} />
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <AchieveLottie width={300} height={300} />
+          </React.Suspense>
         </LottieContainer>
       </CompletedStepListWrapper>
     </CompletedStepListContainer>
@@ -154,15 +160,16 @@ const ResponsiveParagraph = styled.p`
 const BottomLeftButton = styled.button`
   bottom: 8px;
   left: 8px;
-  background-color: green;
-  color: ${colors.background};
+  background-color: #017201;
+  color: white;
   padding: 8px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 150px;
+  width: 110px;
   font-weight: 600;
   margin-top: 16px;
+  font-size: 16px;
 `;
 
 const UndoIconContainer = styled.div`
@@ -176,7 +183,7 @@ const UndoIcon = styled(FaUndo)`
   padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 28px; 
+  font-size: 28px;
   font-weight: 600;
   margin-left: 8px;
 

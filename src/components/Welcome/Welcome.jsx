@@ -10,7 +10,7 @@ export const Welcome = ({ onTimeout }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-      onTimeout(navigate); 
+      onTimeout(navigate);
     }, 10000);
 
     return () => clearTimeout(timer);
@@ -22,7 +22,9 @@ export const Welcome = ({ onTimeout }) => {
         <WelcomeWrapper>
           <WelcomeTitle>Welcome to A Little Step!</WelcomeTitle>
           <WelcomeSubtitle>Taking small steps for a big impact.</WelcomeSubtitle>
-          <Lottie />
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Lottie />
+          </React.Suspense>
         </WelcomeWrapper>
       )}
     </>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { About } from '../About/About'; // Import the About component
 import styled from 'styled-components';
@@ -24,7 +23,7 @@ const TopWrapper = styled.div`
   max-width: 350px;
   margin: 0 auto;
   position: relative;
-  opacity: 0.9;
+  background-color: white;
 `;
 
 const LinkContainer = styled.div`

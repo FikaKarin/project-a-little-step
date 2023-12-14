@@ -30,7 +30,7 @@ const AboutWrapper = styled.div`
 
   p {
     color: ${colors.text};
-    font-weight: 400;
+    font-weight: 600;
   }
 
   @media (max-width: 400px) {
