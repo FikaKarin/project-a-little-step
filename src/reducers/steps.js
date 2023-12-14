@@ -1,4 +1,4 @@
-// Import createSlice function from Redux Toolkit and tasksData from tasks.json
+// Import createSlice function from Redux Toolkit and stepsData from steps.json
 import { createSlice } from '@reduxjs/toolkit';
 import stepsData from '../steps.json';
 import { v4 as uuidv4 } from 'uuid'; // Import uuid
@@ -19,7 +19,7 @@ export const stepsSlice = createSlice({
     completedSteps: [], // Add this line to initialize completedSteps as an empty array
   },
   reducers: {
-    // Add a new task to the allSteps array
+    // Add a new step to the allSteps array
     addStep: (state, action) => {
       const { step, dueDate } = action.payload;
       const newStep = {
@@ -167,7 +167,7 @@ export const stepsSlice = createSlice({
       }
     },    
 
-    // Start a new day by resetting chosenToday array and unchecking all chosen tasks
+    // Start a new day by resetting chosenToday array and unchecking all chosen steps
     startNewDay: (state) => {
       console.log('Starting a new day!'); // Log when starting a new day
       state.chosenToday = [];
