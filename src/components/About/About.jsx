@@ -29,7 +29,7 @@ const AboutWrapper = styled.div`
   }
 
   p {
-    color: ${colors.text};
+    color: black;
     font-weight: 600;
   }
 
