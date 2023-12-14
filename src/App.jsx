@@ -64,6 +64,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    height: 100vh; 
     background: url(${(props) => props.backgroundImage}) center;
     background-size: auto auto; 
     background-repeat: repeat; 
